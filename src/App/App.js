@@ -1,10 +1,10 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
-import Nav from './Nav/Nav'
-import LandingPage from './LandingPage/LandingPage'
-import SignUp from './SignUp/SignUp'
-import BrowseBooks from './BrowseBooks/BrowseBooks'
-import MyBookshelf from './MyBookshelf/MyBookshelf'
+import Nav from '../Nav/Nav'
+import LandingPage from '../LandingPage/LandingPage'
+import SignUp from '../SignUp/SignUp'
+import BrowseBooks from '../BrowseBooks/BrowseBooks'
+import MyBookshelf from '../MyBookshelf/MyBookshelf'
 
 function App() {
   return (

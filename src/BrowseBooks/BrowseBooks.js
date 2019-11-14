@@ -6,7 +6,6 @@ class BrowseBooks extends React.Component {
   }
 
   render() {
-    console.log(this.props.books)
     return (
       <div>
         <h1>Browse Books Here</h1>

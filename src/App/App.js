@@ -11,7 +11,8 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      books: []
+      books: [],
+      bookshelf: []
     }
   }
   
@@ -21,14 +22,25 @@ class App extends React.Component {
     setTimeout(() => this.setState(dummyStore), 600)
   }
 
+  // handleAddToBookshelf(e) {
+  //   this.setState({
+
+  //   }) 
+  // }
+
   render() {
     let { books } = this.state
-    books = Object.keys(books).map((book, i) => (
+    let updatedBooks = Object.keys(books).map((book, i) => (
       <ul>
-        <li key={i}>{books[book].title}</li>
+        <li key={i}>
+          <div>
+            {books[book].title}
+            <p>Author: {books[book].author}</p>
+            <button onClick={this.handleAddToBookshelf}>Add to Bookshelf</button>
+          </div>
+        </li>
       </ul>
     ))
-    console.log("books", books)
 
     return (
       <main className="App">
@@ -48,7 +60,7 @@ class App extends React.Component {
             path='/browse-books'
             render={() => (
               <BrowseBooks 
-                books={books}
+                books={updatedBooks}
               />
             )}
           />

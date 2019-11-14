@@ -23,7 +23,11 @@ class App extends React.Component {
 
   render() {
     let { books } = this.state
-    
+    {Object.keys(books).map((book, i) => (
+      <ul>
+        <li key={i}>{books[book].title}</li>
+      </ul>
+    ))}
     console.log("books", books)
 
     return (
@@ -42,8 +46,12 @@ class App extends React.Component {
           />
           <Route 
             path='/browse-books'
-            books={this.state.books}
-            component={BrowseBooks}
+            render={props => (
+              <BrowseBooks 
+                books={books}
+                {...props}
+              />
+            )}
           />
           <Route 
             path='/my-bookshelf'

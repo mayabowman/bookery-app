@@ -8,9 +8,13 @@ import MyBookshelf from '../MyBookshelf/MyBookshelf'
 import dummyStore from '../dummy-store'
 
 class App extends React.Component {
-  state = {
-    books: []
+  constructor(props) {
+    super(props)
+    this.state = {
+      books: []
+    }
   }
+  
 
   componentDidMount() {
     // fake data loading from API call
@@ -18,8 +22,15 @@ class App extends React.Component {
   }
 
   render() {
-    const { books } = this.state
-    console.log(this.state)
+    let { books } = this.state
+    books = books.map((book) => {
+      return(
+        <ul>
+          <li>{book.title}</li>
+        </ul>
+      )
+    })
+    console.log("books", books)
 
     return (
       <main className="App">
@@ -37,7 +48,7 @@ class App extends React.Component {
           />
           <Route 
             path='/browse-books'
-            books={this.state.books}
+            books={books}
             component={BrowseBooks}
           />
           <Route 

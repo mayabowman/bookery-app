@@ -23,13 +23,7 @@ class App extends React.Component {
 
   render() {
     let { books } = this.state
-    books = books.map((book) => {
-      return(
-        <ul>
-          <li>{book.title}</li>
-        </ul>
-      )
-    })
+    
     console.log("books", books)
 
     return (
@@ -48,7 +42,7 @@ class App extends React.Component {
           />
           <Route 
             path='/browse-books'
-            books={books}
+            books={this.state.books}
             component={BrowseBooks}
           />
           <Route 

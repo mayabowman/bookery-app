@@ -1,8 +1,11 @@
 import React from 'react'
 
 class BrowseBooks extends React.Component {
+  constructor(props) {
+    super(props)
+  }
 
-    render() {
+  render() {
     console.log(this.props.books)
     return (
       <div>

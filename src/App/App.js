@@ -22,25 +22,22 @@ class App extends React.Component {
     setTimeout(() => this.setState(dummyStore), 600)
   }
 
-  // handleAddToBookshelf(e) {
-  //   this.setState({
-
-  //   }) 
-  // }
+  handleAddToBookshelf(e) {
+    console.log('button clicked!')
+    // const bookID = 
+  }
 
   render() {
     let { books } = this.state
-    let updatedBooks = Object.keys(books).map((book, i) => (
-      <ul>
-        <li key={i}>
-          <div>
-            {books[book].title}
-            <p>Author: {books[book].author}</p>
-            <button onClick={this.handleAddToBookshelf}>Add to Bookshelf</button>
-          </div>
-        </li>
-      </ul>
-    ))
+    let updatedBooks = Object.keys(books).map((book, i) => (      
+      <li key={i}>
+        <div>
+          {books[book].title}
+          <p>Author: {books[book].author}</p>
+          <button onClick={this.handleAddToBookshelf}>Add to Bookshelf</button>
+        </div>
+      </li>
+      ))
 
     return (
       <main className="App">

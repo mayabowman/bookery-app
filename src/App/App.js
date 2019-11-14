@@ -23,11 +23,11 @@ class App extends React.Component {
 
   render() {
     let { books } = this.state
-    {Object.keys(books).map((book, i) => (
+    Object.keys(books).map((book, i) => (
       <ul>
         <li key={i}>{books[book].title}</li>
       </ul>
-    ))}
+    ))
     console.log("books", books)
 
     return (

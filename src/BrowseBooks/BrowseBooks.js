@@ -1,11 +1,22 @@
 import React from 'react'
 
-function BrowseBooks() {
-  return (
-    <div>
-      <h1>Browse Books Here</h1>
-    </div>
-  )
+class BrowseBooks extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>Browse Books Here</h1>
+        <h2>{this.props.books.map((book) => (
+          <ul>
+            <li>{book.title}</li>
+          </ul>
+        ))}</h2>
+      </div>
+    )
+  }
 }
 
 export default BrowseBooks

@@ -22,19 +22,27 @@ class App extends React.Component {
   }
 
   handleAddToBookshelf(e) {
-    console.log('button clicked!')
-    // const bookID = 
+    this.setState(
+      {
+        bookshelf: !this.state.bookshelf.includes(e.target.id)  
+          ? [...this.state.bookshelf, e.target.id]
+          : this.state.bookshelf
+      }
+    )
   }
 
   render() {
     let { books } = this.state
-    console.log(this.state)
-    console.log(books)
     let updatedBooks = Object.keys(books).map((book, i) => (      
       <div key={i}>
-        {books[book].title}
+        <h2>{books[book].title}</h2>
         <p>Author: {books[book].author}</p>
-        <button onClick={this.handleAddToBookshelf}>Add to Bookshelf</button>
+        <button 
+          id={books[book].id} 
+          onClick={e => this.handleAddToBookshelf(e)}        
+        >
+          Add to Bookshelf
+        </button>
       </div>
     ))
 

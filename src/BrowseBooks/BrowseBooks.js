@@ -1,15 +1,13 @@
 import React from 'react'
-import Book from '../Book/Book'
+import BookList from '../BookList/BookList'
 
 class BrowseBooks extends React.Component {
   
-  render() {
-    console.log("browse book props", this.props)
-    
+  render() {    
     return (
       <div>
         <h1>Browse Books Here</h1>
-        <Book books={this.props.books} />
+        <BookList books={this.props.books} />
       </div>
     )
   }

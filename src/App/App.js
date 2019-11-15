@@ -30,14 +30,12 @@ class App extends React.Component {
   render() {
     let { books } = this.state
     let updatedBooks = Object.keys(books).map((book, i) => (      
-      <li key={i}>
-        <div>
+        <div key={i}>
           {books[book].title}
           <p>Author: {books[book].author}</p>
           <button onClick={this.handleAddToBookshelf}>Add to Bookshelf</button>
         </div>
-      </li>
-      ))
+    ))
 
     return (
       <main className="App">
@@ -56,9 +54,7 @@ class App extends React.Component {
           <Route 
             path='/browse-books'
             render={() => (
-              <BrowseBooks 
-                books={updatedBooks}
-              />
+              <BrowseBooks books={updatedBooks} />
             )}
           />
           <Route 

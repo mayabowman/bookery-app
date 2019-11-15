@@ -5,7 +5,6 @@ import LandingPage from '../LandingPage/LandingPage'
 import SignUp from '../SignUp/SignUp'
 import BrowseBooks from '../BrowseBooks/BrowseBooks'
 import MyBookshelf from '../MyBookshelf/MyBookshelf'
-import Book from '../Book/Book'
 import dummyStore from '../dummy-store'
 
 class App extends React.Component {

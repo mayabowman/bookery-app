@@ -1,10 +1,10 @@
 import React from 'react'
 
 function Book(props) {
-  console.log("props", this.props)
+  console.log("props", props)
   return (
     <div>
-      <h2>{this.props.updatedBooks.title}</h2>
+      <h2>{props.books}</h2>
     </div>
   )
 }

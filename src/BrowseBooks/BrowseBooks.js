@@ -9,7 +9,7 @@ class BrowseBooks extends React.Component {
     return (
       <div>
         <h1>Browse Books Here</h1>
-        <Book books={this.props.updatedBooks} />
+        <Book books={this.props.books} />
       </div>
     )
   }

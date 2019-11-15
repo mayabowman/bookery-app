@@ -18,8 +18,7 @@ class App extends React.Component {
   
 
   componentDidMount() {
-    // fake data loading from API call
-    setTimeout(() => this.setState(dummyStore), 600)
+    this.setState(dummyStore)
   }
 
   handleAddToBookshelf(e) {
@@ -29,12 +28,14 @@ class App extends React.Component {
 
   render() {
     let { books } = this.state
+    console.log(this.state)
+    console.log(books)
     let updatedBooks = Object.keys(books).map((book, i) => (      
-        <div key={i}>
-          {books[book].title}
-          <p>Author: {books[book].author}</p>
-          <button onClick={this.handleAddToBookshelf}>Add to Bookshelf</button>
-        </div>
+      <div key={i}>
+        {books[book].title}
+        <p>Author: {books[book].author}</p>
+        <button onClick={this.handleAddToBookshelf}>Add to Bookshelf</button>
+      </div>
     ))
 
     return (

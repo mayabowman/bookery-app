@@ -5,6 +5,7 @@ import LandingPage from '../LandingPage/LandingPage'
 import SignUp from '../SignUp/SignUp'
 import BrowseBooks from '../BrowseBooks/BrowseBooks'
 import MyBookshelf from '../MyBookshelf/MyBookshelf'
+import Book from '../Book/Book'
 import dummyStore from '../dummy-store'
 
 class App extends React.Component {
@@ -21,29 +22,31 @@ class App extends React.Component {
     this.setState(dummyStore)
   }
 
-  handleAddToBookshelf(e) {
-    this.setState(
-      {
-        bookshelf: !this.state.bookshelf.includes(e.target.id)  
-                    ? [...this.state.bookshelf, e.target.id]
-                    : this.state.bookshelf
-      }
-    )
-  }
+  // handleAddToBookshelf(e) {
+  //   debugger
+  //   this.setState(
+  //     {
+  //       bookshelf: !this.state.bookshelf.includes(e.target.id)  
+  //                   ? [...this.state.bookshelf, e.target.id]
+  //                   : this.state.bookshelf
+  //     }
+  //   )
+  // }
 
   render() {
     let { books } = this.state
-    let updatedBooks = Object.keys(books).map((book, i) => (      
-      <div key={i}>
-        <h2>{books[book].title}</h2>
-        <p>Author: {books[book].author}</p>
-        <button 
-          id={books[book]} 
-          onClick={e => this.handleAddToBookshelf(e)}        
-        >
-          Add to Bookshelf
-        </button>
-       </div>
+    let updatedBooks = Object.keys(books).map((book, i) => (  
+      <Book key={i} book={books[book]}/>
+      // <div key={i}>
+      //   <h2>{books[book].title}</h2>
+      //   <p>Author: {books[book].author}</p>
+      //   <button 
+      //     id={books[book].id} 
+      //     onClick={e => this.handleAddToBookshelf(e)}        
+      //   >
+      //     Add to Bookshelf
+      //   </button>
+      //  </div>
     ))
 
     return (

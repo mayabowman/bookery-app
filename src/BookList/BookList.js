@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Book(props) {
+function BookList(props) {
   console.log("props", props)
   return (
     <div>
@@ -9,4 +9,4 @@ function Book(props) {
   )
 }
 
-export default Book
+export default BookList

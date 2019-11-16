@@ -25,8 +25,8 @@ class App extends React.Component {
     this.setState(
       {
         bookshelf: !this.state.bookshelf.includes(e.target.id)  
-          ? [...this.state.bookshelf, e.target.id]
-          : this.state.bookshelf
+                    ? [...this.state.bookshelf, e.target.id]
+                    : this.state.bookshelf
       }
     )
   }
@@ -43,7 +43,7 @@ class App extends React.Component {
         >
           Add to Bookshelf
         </button>
-      </div>
+       </div>
     ))
 
     return (
@@ -69,7 +69,10 @@ class App extends React.Component {
           <Route 
             path='/my-bookshelf'
             render={() => (
-              <MyBookshelf bookshelf={this.state.bookshelf} />
+              <MyBookshelf 
+                books={updatedBooks}
+                bookshelf={this.state.bookshelf} 
+              />
             )}
           />
         </div>

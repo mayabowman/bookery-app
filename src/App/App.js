@@ -38,7 +38,7 @@ class App extends React.Component {
         <h2>{books[book].title}</h2>
         <p>Author: {books[book].author}</p>
         <button 
-          id={books[book].id} 
+          id={books[book]} 
           onClick={e => this.handleAddToBookshelf(e)}        
         >
           Add to Bookshelf

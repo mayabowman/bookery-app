@@ -9,11 +9,18 @@ function MyBookshelf(props) {
     }
     return false
   })
+
+  const booksToDisplay = myBooks.map((book, i) => (
+    <div key={i} className='displayed-books'>
+      {myBooks[i].title}
+    </div>
+  ))
   console.log('myBooks', myBooks)
 
   return (
      <div>
       <h1>Your Bookshelf</h1>
+      {booksToDisplay}
     </div>
   )
 }

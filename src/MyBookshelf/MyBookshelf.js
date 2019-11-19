@@ -1,28 +1,60 @@
 import React from 'react'
+import StarRatingComponent from 'react-star-rating-component'
 
-function MyBookshelf(props) {
-  console.log("bookshelf", props.bookshelf)
+class MyBookshelf extends React.Component {
+  constructor(props) {
+    super(props)
 
-  const myBooks = props.books.filter((book) => {
-    if (book.id === props.bookshelf.find(item => item === book.id)) {
+    this.state = {
+      rating: 1
+    }
+  }
+
+  onStarClick(nextValue, prevValue, name) {
+    this.setState({ rating: nextValue })
+  }
+
+  myBooks = this.props.books.filter((book) => {
+    if (book.id === this.props.bookshelf.find(item => item === book.id)) {
       return true
     }
     return false
   })
 
-  const booksToDisplay = myBooks.map((book, i) => (
+  booksToDisplay = this.myBooks.map((book, i) => (
     <div key={i} className='displayed-books'>
-      {myBooks[i].title}
-    </div>
+      {this.myBooks[i].title}
+      <StarRatingComponent
+        name='rate1'
+        starCount={5}
+        value={this.state.rating}
+        onStarClick={this.onStarClick.bind(this)}
+      />
+      </div>
   ))
-  console.log('myBooks', myBooks)
 
-  return (
-     <div>
-      <h1>Your Bookshelf</h1>
-      {booksToDisplay}
-    </div>
-  )
+  render() {
+    return (
+      <div>
+        <h1>Your Bookshelf</h1>
+        {this.booksToDisplay}
+      </div>
+    )
+  }
 }
 
 export default MyBookshelf
+
+
+
+
+
+
+
+
+
+
+
+
+
+

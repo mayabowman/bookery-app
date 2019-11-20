@@ -6,7 +6,8 @@ class MyBookshelf extends React.Component {
     super(props)
 
     this.state = {
-      rating: 1
+      rating: 1,
+      booksToDisplay: []
     }
   }
 
@@ -21,23 +22,27 @@ class MyBookshelf extends React.Component {
     return false
   })
 
-  booksToDisplay = this.myBooks.map((book, i) => (
-    <div key={i} className='displayed-books'>
-      {this.myBooks[i].title}
-      <StarRatingComponent
-        name='rate1'
-        starCount={5}
-        value={this.state.rating}
-        onStarClick={this.onStarClick.bind(this)}
-      />
-      </div>
-  ))
+  getBooksToDisplay() {
+    console.log("booksToDisplay", this.state.booksToDisplay)
+    this.setState({ booksToDisplay: this.myBooks })
+  }
+
 
   render() {
     return (
       <div>
         <h1>Your Bookshelf</h1>
-        {this.booksToDisplay}
+        {this.state.booksToDisplay.map((book, i) => (
+          <div key={i} className='displayed-books'>
+            {this.state.booksToDisplay[i].title}
+            <StarRatingComponent
+              name='rate1'
+              starCount={5}
+              value={this.state.rating}
+              onStarClick={this.onStarClick.bind(this)}
+            />
+          </div>
+        ))}
       </div>
     )
   }
@@ -45,6 +50,11 @@ class MyBookshelf extends React.Component {
 
 export default MyBookshelf
 
+// booksToDisplay = this.myBooks.map((book, i) => (
+  //   <div key={i} className='displayed-books'>
+  //     {this.myBooks[i].title}
+  //   </div>
+  // ))
 
 
 

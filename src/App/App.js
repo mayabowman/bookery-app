@@ -30,6 +30,17 @@ class App extends React.Component {
     })
   }
 
+  handleRemoveBook = (e) => {
+    debugger
+    console.log("function called in App handleRemoveBook")
+    let array = [...this.state.bookshelf]
+    let index = array.indexOf(e.target.value)
+    if (index !== -1) {
+      array.splice(index, 1)
+      this.setState({ bookshelf: array })
+    }
+  }
+
   render() {
     let { books } = this.state
     let updatedBooks = Object.keys(books).map((book, i) => (
@@ -62,6 +73,7 @@ class App extends React.Component {
               <MyBookshelf
                 books={books}
                 bookshelf={this.state.bookshelf}
+                handleRemoveBook={this.handleRemoveBook}
               />
             )}
           />

@@ -6,31 +6,41 @@ class MyBookshelf extends React.Component {
     super(props)
 
     this.state = {
-      rating: '',
+      ratings: {}
     }
   }
 
   onStarClick(nextValue, prevValue, name) {
-    this.setState({ rating: nextValue })
+    const newRatings = this.state.ratings
+    newRatings[name] = nextValue
+    debugger
+    this.setState({ ratings: newRatings })
   }
 
   render() {
     const myBooks = this.props.books.filter((book) => {
       if (book.id === this.props.bookshelf.find(item => item === book.id)) {
         return true
-      }
-      return false
+      } return false
     })
 
     const booksToDisplay = myBooks.map((book, i) => (
       <div key={i} className='displayed-books'>
-        {myBooks[i].title} <br />
+        <p>{myBooks[i].title}</p>
         <StarRatingComponent
-              name='rate1'
-              starCount={5}
-              value={this.state.rating}
-              onStarClick={this.onStarClick.bind(this)}
-            />
+          name={`rate${i}`}
+          starCount={5}
+          value={this.state.ratings[`rate${i}`]}
+          onStarClick={this.onStarClick.bind(this)}
+        />
+        <div>
+          <button
+            id={myBooks[i].id}
+            onClick={e => this.props.handleRemoveBook(e)}
+          >
+            Delete
+          </button>
+        </div>
       </div>
     ))
 

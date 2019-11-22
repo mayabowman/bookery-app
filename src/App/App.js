@@ -31,10 +31,9 @@ class App extends React.Component {
   }
 
   handleRemoveBook = (e) => {
-    debugger
     console.log("function called in App handleRemoveBook")
     let array = [...this.state.bookshelf]
-    let index = array.indexOf(e.target.value)
+    let index = array.indexOf(e.target.id)
     if (index !== -1) {
       array.splice(index, 1)
       this.setState({ bookshelf: array })

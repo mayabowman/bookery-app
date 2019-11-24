@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom'
 import Nav from '../Nav/Nav'
 import LandingPage from '../LandingPage/LandingPage'
 import SignUp from '../SignUp/SignUp'
+import LogIn from '../LogIn/LogIn'
 import BrowseBooks from '../BrowseBooks/BrowseBooks'
 import MyBookshelf from '../MyBookshelf/MyBookshelf'
 import Book from '../Book/Book'
@@ -59,6 +60,11 @@ class App extends React.Component {
             exact
             path='/sign-up'
             component={SignUp}
+          />
+          <Route
+            exact
+            path='/log-in'
+            component={LogIn}
           />
           <Route
             path='/browse-books'

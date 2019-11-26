@@ -7,19 +7,39 @@ import LogIn from '../LogIn/LogIn'
 import BrowseBooks from '../BrowseBooks/BrowseBooks'
 import MyBookshelf from '../MyBookshelf/MyBookshelf'
 import Book from '../Book/Book'
-import dummyStore from '../dummy-store'
+// import dummyStore from '../dummy-store'
+import config from '../config'
 
 class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       books: [],
-      bookshelf: []
+      bookshelf: [],
+      error: null
     }
   }
 
   componentDidMount() {
-    this.setState(dummyStore)
+    // this.setState(dummyStore)
+    fetch(`${config.API_ENDPOINT}/books`)
+      .then((booksRes) => {
+        if (!booksRes.ok) {
+          throw new Error(booksRes.statusText)
+        }
+        return booksRes.json()
+      })
+      .then(data => {
+        this.setState({
+          books: data,
+          error: null
+        })
+      })
+      .catch(err => {
+        this.setState({
+          error: 'Sorry, could not get books at this time.'
+        })
+      })
   }
 
   handleAddToBookshelf = (e) => {

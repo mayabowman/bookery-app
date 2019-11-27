@@ -39,7 +39,6 @@ class LogIn extends React.Component {
   }
 
   render() {
-    const { error } = this.state
     return (
       <section>
         <form

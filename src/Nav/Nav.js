@@ -8,11 +8,11 @@ function Nav(props) {
         Home
       </Link>
       {' '}
-      <Link to={'/browse-books'}>
+      <Link to={'/browsebooks'}>
         Browse Books
       </Link>
       {' '}
-      <Link to={'/my-bookshelf'}>
+      <Link to={'/mybookshelf'}>
         My Bookshelf
       </Link>
     </nav>

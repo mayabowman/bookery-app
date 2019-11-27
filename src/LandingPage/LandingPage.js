@@ -8,11 +8,11 @@ function LandingPage() {
       <p>Every book is a journey. Let Bookery help you choose your next adventure,
         keep track of your reads, and rate your experiences! Click below to get started.
       </p>
-      <Link to='/sign-up'>
+      <Link to='/signup'>
         Sign Up
       </Link>
       {' | '}
-      <Link to='/log-in'>
+      <Link to='/login'>
         Log In
       </Link>
     </main>

@@ -78,22 +78,22 @@ class App extends React.Component {
           />
           <Route
             exact
-            path='/sign-up'
+            path='/signup'
             component={SignUp}
           />
           <Route
             exact
-            path='/log-in'
+            path='/login'
             component={LogIn}
           />
           <Route
-            path='/browse-books'
+            path='/browsebooks'
             render={() => (
               <BrowseBooks books={updatedBooks} />
             )}
           />
           <Route
-            path='/my-bookshelf'
+            path='/mybookshelf'
             render={() => (
               <MyBookshelf
                 books={books}

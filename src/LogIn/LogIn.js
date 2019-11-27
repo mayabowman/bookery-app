@@ -4,18 +4,27 @@ import AuthApiService from '../services/auth-api-service'
 
 class LogIn extends React.Component {
   static defaultProps = {
-    onLoginSuccess: () => {}
+    location: {},
+    history: {
+      push: () => {},
+    }
   }
 
   state = { error: null }
+
+  handleLoginSuccess = () => {
+    const { location, history } = this.props
+    const destination = (location.state || {}).from || '/'
+    history.push(destination)
+  }
 
   handleSubmitJwtAuth = e => {
     e.preventDefault()
     this.setState({ error: null })
     const { email, password } = e.target
-
+    // debugger
     console.log('login form submitted')
-    console.log(email, password)
+    console.log(email.value, password.value)
 
     AuthApiService.postLogin({
       email: email.value,
@@ -25,7 +34,7 @@ class LogIn extends React.Component {
         email.value = ''
         password.value = ''
         TokenService.saveAuthToken(res.authToken)
-        this.props.onLoginSuccess()
+        this.handleLoginSuccess()
       })
       .catch(res => {
         this.setState({ error: res.error})

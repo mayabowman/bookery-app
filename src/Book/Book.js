@@ -1,4 +1,5 @@
 import React from 'react'
+import './Book.css'
 
 class Book extends React.Component {
   render() {
@@ -6,6 +7,12 @@ class Book extends React.Component {
       <div>
         <h2>{this.props.book.title}</h2>
         <p>Author: {this.props.book.author}</p>
+        <div>
+          <img
+            src={this.props.book.graphic}
+            alt='book cover'
+          />
+        </div>
         <button
           id={this.props.book.id}
           onClick={e => this.props.handleAddToBookshelf(e)}

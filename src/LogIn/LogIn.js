@@ -14,7 +14,7 @@ class LogIn extends React.Component {
 
   handleLoginSuccess = () => {
     const { location, history } = this.props
-    const destination = (location.state || {}).from || '/'
+    const destination = (location.state || {}).from || '/browsebooks'
     history.push(destination)
   }
 
@@ -22,12 +22,9 @@ class LogIn extends React.Component {
     e.preventDefault()
     this.setState({ error: null })
     const { email, password } = e.target
-    // debugger
-    console.log('login form submitted')
-    console.log(email.value, password.value)
 
     AuthApiService.postLogin({
-      email: email.value,
+      user_email: email.value,
       password: password.value
     })
       .then(res => {
@@ -37,9 +34,10 @@ class LogIn extends React.Component {
         this.handleLoginSuccess()
       })
       .catch(res => {
-        this.setState({ error: res.error})
+        this.setState({ error: null })
       })
   }
+
   render() {
     const { error } = this.state
     return (

@@ -86,6 +86,9 @@ class SignUp extends React.Component {
             Sign Up
           </button>
         </form>
+        <div className='error-message'>
+          {this.state.error}
+        </div>
       </div>
     )
   }

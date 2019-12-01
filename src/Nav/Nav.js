@@ -1,22 +1,56 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import TokenService from '../services/token-service'
 
-function Nav(props) {
-  return (
-    <nav className='Nav'>
-      <Link to={'/'}>
-        Home
+
+
+class Nav extends React.Component {
+  handleLogoutClick = () => {
+    TokenService.clearAuthToken()
+  }
+
+  renderLogoutLink() {
+    return (
+      <Link
+        onClick={this.handleLogoutClick}
+        to='/'
+      >
+        Log Out
       </Link>
-      {' '}
-      <Link to={'/browsebooks'}>
-        Browse Books
+    )
+  }
+
+  renderLoginLink() {
+    return (
+      <Link
+        to='/signup'
+      >
+        Sign Up
       </Link>
-      {' '}
-      <Link to={'/mybookshelf'}>
-        My Bookshelf
-      </Link>
-    </nav>
-  )
+    )
+  }
+
+  render() {
+    return (
+      <nav className='Nav'>
+        <Link to={'/'}>
+          Home
+        </Link>
+        {' '}
+        <Link to={'/browsebooks'}>
+          Browse Books
+        </Link>
+        {' '}
+        <Link to={'/bookshelf'}>
+          My Bookshelf
+        </Link>
+        {' '}
+        {TokenService.hasAuthToken()
+          ? this.renderLogoutLink()
+          : this.renderLoginLink()}
+      </nav>
+    )
+  }
 }
 
 export default Nav

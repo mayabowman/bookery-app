@@ -34,7 +34,8 @@ class LogIn extends React.Component {
         this.handleLoginSuccess()
       })
       .catch(res => {
-        this.setState({ error: null })
+        debugger
+        this.setState({ error: res.error })
       })
   }
 
@@ -46,11 +47,11 @@ class LogIn extends React.Component {
           onSubmit={this.handleSubmitJwtAuth}
         >
           <div className='username-login'>
-            <label for='username-login'>Email: </label>
+            <label htmlFor='username-login'>Email: </label>
             <input type='email' name='email' required />
           </div>
           <div className='password-login'>
-            <label for='password-login'>Password: </label>
+            <label htmlFor='password-login'>Password: </label>
             <input type='password' name='password' required />
           </div>
           <div>
@@ -59,6 +60,9 @@ class LogIn extends React.Component {
             </button>
           </div>
         </form>
+        <div className='error-message'>
+          {this.state.error}
+        </div>
       </section>
     )
   }

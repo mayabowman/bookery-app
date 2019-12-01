@@ -5,9 +5,8 @@ import LandingPage from '../LandingPage/LandingPage'
 import SignUp from '../SignUp/SignUp'
 import LogIn from '../LogIn/LogIn'
 import BrowseBooks from '../BrowseBooks/BrowseBooks'
-import MyBookshelf from '../MyBookshelf/MyBookshelf'
+import Bookshelf from '../Bookshelf/Bookshelf'
 import Book from '../Book/Book'
-// import dummyStore from '../dummy-store'
 import config from '../config'
 
 class App extends React.Component {
@@ -21,7 +20,6 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    // this.setState(dummyStore)
     fetch(`${config.API_ENDPOINT}/books`)
       .then((booksRes) => {
         if (!booksRes.ok) {
@@ -51,15 +49,15 @@ class App extends React.Component {
     })
   }
 
-  handleRemoveBook = (e) => {
-    console.log("function called in App handleRemoveBook")
-    let array = [...this.state.bookshelf]
-    let index = array.indexOf(e.target.id)
-    if (index !== -1) {
-      array.splice(index, 1)
-      this.setState({ bookshelf: array })
-    }
-  }
+  // handleRemoveBook = (e) => {
+  //   console.log("function called in App handleRemoveBook")
+  //   let array = [...this.state.bookshelf]
+  //   let index = array.indexOf(e.target.id)
+  //   if (index !== -1) {
+  //     array.splice(index, 1)
+  //     this.setState({ bookshelf: array })
+  //   }
+  // }
 
   render() {
     let { books } = this.state
@@ -93,9 +91,9 @@ class App extends React.Component {
             )}
           />
           <Route
-            path='/mybookshelf'
+            path='/bookshelf'
             render={() => (
-              <MyBookshelf
+              <Bookshelf
                 books={books}
                 bookshelf={this.state.bookshelf}
                 handleRemoveBook={this.handleRemoveBook}

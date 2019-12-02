@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import Nav from '../Nav/Nav'
 import LandingPage from '../LandingPage/LandingPage'
 import SignUp from '../SignUp/SignUp'
@@ -68,39 +68,41 @@ class App extends React.Component {
     return (
       <main className="App">
         <Nav />
-        <div className='content' aria-live='polite'>
-          <Route
-            exact
-            path='/'
-            component={LandingPage}
-          />
-          <Route
-            exact
-            path='/signup'
-            component={SignUp}
-          />
-          <Route
-            exact
-            path='/login'
-            component={LogIn}
-          />
-          <Route
-            path='/browsebooks'
-            render={() => (
-              <BrowseBooks books={updatedBooks} />
-            )}
-          />
-          <Route
-            path='/bookshelf'
-            render={() => (
-              <Bookshelf
-                books={books}
-                bookshelf={this.state.bookshelf}
-                handleRemoveBook={this.handleRemoveBook}
-              />
-            )}
-          />
-        </div>
+        <Switch>
+          <div className='content' aria-live='polite'>
+            <Route
+              exact
+              path='/'
+              component={LandingPage}
+            />
+            <Route
+              exact
+              path='/signup'
+              component={SignUp}
+            />
+            <Route
+              exact
+              path='/login'
+              component={LogIn}
+            />
+            <Route
+              path='/browsebooks'
+              render={() => (
+                <BrowseBooks books={updatedBooks} />
+              )}
+            />
+            <Route
+              path='/bookshelf'
+              render={() => (
+                <Bookshelf
+                  books={books}
+                  bookshelf={this.state.bookshelf}
+                  handleRemoveBook={this.handleRemoveBook}
+                />
+              )}
+            />
+          </div>
+        </Switch>
       </main>
     )
   }

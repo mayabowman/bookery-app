@@ -6,6 +6,7 @@ import SignUp from '../SignUp/SignUp'
 import LogIn from '../LogIn/LogIn'
 import BrowseBooks from '../BrowseBooks/BrowseBooks'
 import Bookshelf from '../Bookshelf/Bookshelf'
+import ReviewForm from '../ReviewForm/ReviewForm'
 import Book from '../Book/Book'
 import config from '../config'
 
@@ -100,6 +101,11 @@ class App extends React.Component {
                   handleRemoveBook={this.handleRemoveBook}
                 />
               )}
+            />
+            <Route
+              exact
+              path='/reviewform'
+              component={ReviewForm}
             />
           </div>
         </Switch>

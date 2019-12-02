@@ -1,6 +1,7 @@
 import React from 'react'
 import StarRatingComponent from 'react-star-rating-component'
 import config from '../config'
+import { Link } from 'react-router-dom'
 
 class Bookshelf extends React.Component {
   constructor(props) {
@@ -60,6 +61,11 @@ class Bookshelf extends React.Component {
           onStarClick={this.onStarClick.bind(this)}
         />
         <div>
+          <Link to='/reviewform'>
+            <button>
+              Add Review
+            </button>
+          </Link>
           <button
             id={book.id}
             onClick={e => this.handleRemoveBook(e)}

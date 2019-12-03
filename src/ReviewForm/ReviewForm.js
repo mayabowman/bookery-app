@@ -1,7 +1,22 @@
 import React from 'react'
-// import config from '../config'
+import BookshelfContext from '../contexts/BookshelfContext'
+import BookshelfApiService from '../services/bookshelf-api-service'
 
 class ReviewForm extends React.Component {
+  static contextType = BookshelfContext
+
+  handlSubmit = e => {
+    e.preventDefault()
+    const { bookshelf } = this.context
+    const { text } = e.target
+    BookshelfApiService.postReview(bookshelf.id, text.value)
+      .then(this.context.addReview)
+      .then(() => {
+        text.value = ''
+      })
+      .catch(this.context.setError)
+  }
+
   render() {
     return (
       <form className='addReview'>

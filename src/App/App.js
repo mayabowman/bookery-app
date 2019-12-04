@@ -70,44 +70,46 @@ class App extends React.Component {
       <main className="App">
         <Nav />
         <Switch>
-          <div className='content' aria-live='polite'>
-            <Route
-              exact
-              path='/'
-              component={LandingPage}
-            />
-            <Route
-              exact
-              path='/signup'
-              component={SignUp}
-            />
-            <Route
-              exact
-              path='/login'
-              component={LogIn}
-            />
-            <Route
-              path='/browsebooks'
-              render={() => (
-                <BrowseBooks books={updatedBooks} />
-              )}
-            />
-            <Route
-              path='/bookshelf'
-              render={() => (
-                <Bookshelf
-                  books={books}
-                  bookshelf={this.state.bookshelf}
-                  handleRemoveBook={this.handleRemoveBook}
-                />
-              )}
-            />
-            <Route
-              exact
-              path='/reviewform'
-              component={ReviewForm}
-            />
-          </div>
+          <>
+            <div className='content' aria-live='polite'>
+              <Route
+                exact
+                path='/'
+                component={LandingPage}
+              />
+              <Route
+                exact
+                path='/signup'
+                component={SignUp}
+              />
+              <Route
+                exact
+                path='/login'
+                component={LogIn}
+              />
+              <Route
+                path='/browsebooks'
+                render={() => (
+                  <BrowseBooks books={updatedBooks} />
+                )}
+              />
+              <Route
+                path='/bookshelf'
+                render={() => (
+                  <Bookshelf
+                    books={books}
+                    bookshelf={this.state.bookshelf}
+                    handleRemoveBook={this.handleRemoveBook}
+                  />
+                )}
+              />
+              <Route
+                exact
+                path='/reviewform'
+                component={ReviewForm}
+              />
+            </div>
+          </>
         </Switch>
       </main>
     )

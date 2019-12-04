@@ -27,6 +27,7 @@ class Bookshelf extends React.Component {
     let index = array.indexOf(id)
     if (index !== -1) {
       array.splice(index, 1)
+      console.log('array',array)
       this.setState({ bookshelf: array })
       console.log(this.state.bookshelf)
     }

@@ -2,7 +2,7 @@ import React from 'react'
 import StarRatingComponent from 'react-star-rating-component'
 import config from '../config'
 import { Link } from 'react-router-dom'
-import BookshefApiService from '../services/bookshelf-api-service'
+import BookshelfApiService from '../services/bookshelf-api-service'
 
 class Bookshelf extends React.Component {
   constructor(props) {
@@ -22,7 +22,7 @@ class Bookshelf extends React.Component {
 
   handleRemoveBook = (id) => {
     console.log("function called in Bookshelf handleRemoveBook")
-    BookshefApiService.deleteBookshelfItem(id)
+    BookshelfApiService.deleteBookshelfItem(id)
     let array = [...this.state.bookshelf]
     let index = array.indexOf(id)
     if (index !== -1) {

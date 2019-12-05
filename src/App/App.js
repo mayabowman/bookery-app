@@ -8,6 +8,7 @@ import BrowseBooks from '../BrowseBooks/BrowseBooks'
 import Bookshelf from '../Bookshelf/Bookshelf'
 import ReviewForm from '../ReviewForm/ReviewForm'
 import Book from '../Book/Book'
+import BookshelfApiService from '../services/bookshelf-api-service'
 import config from '../config'
 
 class App extends React.Component {
@@ -41,14 +42,28 @@ class App extends React.Component {
       })
   }
 
-  handleAddToBookshelf = (e) => {
+  handleAddToBookshelf = (id) => {
     console.log('function called in app handleAddToBookshelf')
+    BookshelfApiService.postBookToBookshelf(id)
     this.setState({
-      bookshelf: !this.state.bookshelf.includes(e.target.id)
-                  ? [...this.state.bookshelf, e.target.id]
+      bookshelf: !this.state.bookshelf.includes(id)
+                  ? [...this.state.bookshelf, id]
                   : this.state.bookshelf
     })
   }
+
+  // handleRemoveBook = (id) => {
+  //   console.log("function called in Bookshelf handleRemoveBook")
+  //   BookshelfApiService.deleteBookshelfItem(id)
+  //   let array = [...this.state.bookshelf]
+  //   let index = array.indexOf(id)
+  //   if (index !== -1) {
+  //     array.splice(index, 1)
+  //     console.log('array',array)
+  //     this.setState({ bookshelf: array })
+  //     console.log(this.state.bookshelf)
+  //   }
+  // }
 
   // handleRemoveBook = (e) => {
   //   console.log("function called in App handleRemoveBook")

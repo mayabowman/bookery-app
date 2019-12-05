@@ -34,7 +34,6 @@ class LogIn extends React.Component {
         this.handleLoginSuccess()
       })
       .catch(res => {
-        debugger
         this.setState({ error: res.error })
       })
   }

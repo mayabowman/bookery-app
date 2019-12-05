@@ -43,6 +43,7 @@ class App extends React.Component {
   }
 
   handleAddToBookshelf = (id) => {
+    debugger
     console.log('function called in app handleAddToBookshelf')
     BookshelfApiService.postBookToBookshelf(id)
     this.setState({
@@ -51,19 +52,6 @@ class App extends React.Component {
                   : this.state.bookshelf
     })
   }
-
-  // handleRemoveBook = (id) => {
-  //   console.log("function called in Bookshelf handleRemoveBook")
-  //   BookshelfApiService.deleteBookshelfItem(id)
-  //   let array = [...this.state.bookshelf]
-  //   let index = array.indexOf(id)
-  //   if (index !== -1) {
-  //     array.splice(index, 1)
-  //     console.log('array',array)
-  //     this.setState({ bookshelf: array })
-  //     console.log(this.state.bookshelf)
-  //   }
-  // }
 
   // handleRemoveBook = (e) => {
   //   console.log("function called in App handleRemoveBook")

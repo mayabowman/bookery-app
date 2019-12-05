@@ -15,7 +15,7 @@ class Book extends React.Component {
         </div>
         <button
           id={this.props.book.id}
-          onClick={e => this.props.handleAddToBookshelf(e)}
+          onClick={() => this.props.handleAddToBookshelf(this.props.book.id)}
         >
           Add to Bookshelf
         </button>

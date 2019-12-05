@@ -44,8 +44,10 @@ class App extends React.Component {
 
   handleAddToBookshelf = (id) => {
     debugger
+    console.log(BookshelfApiService)
     console.log('function called in app handleAddToBookshelf')
     BookshelfApiService.postBookToBookshelf(id)
+    console.log('id', id)
     this.setState({
       bookshelf: !this.state.bookshelf.includes(id)
                   ? [...this.state.bookshelf, id]

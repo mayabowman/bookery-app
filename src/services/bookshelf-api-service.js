@@ -10,7 +10,7 @@ const BookshelfApiService = {
         'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
       body: {
-        // bookshelf_id: bookshelf_id,
+        bookshelf_id: bookshelf_id,
         book_id: book_id,
       },
     })

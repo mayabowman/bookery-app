@@ -1,11 +1,11 @@
 import React from 'react'
 
-export const nullBookshelf = {
-  reviewer: {},
-}
+// export const nullBookshelf = {
+//   reviewer: {},
+// }
 
 const BookshelfContext = React.createContext({
-  bookshelf: nullBookshelf,
+  bookshelf: [],
   reviews: [],
   error: null,
   addReview: () => {},
@@ -15,7 +15,7 @@ export default BookshelfContext
 
 export class BookshelfProvider extends React.Component {
   state = {
-    bookshelf: nullBookshelf,
+    bookshelf: [],
     error: null,
   }
 

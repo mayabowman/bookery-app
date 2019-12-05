@@ -79,7 +79,6 @@ class Bookshelf extends React.Component {
         </div>
       </div>
     ))
-
     return (
       <div>
         <h1>Your Bookshelf</h1>

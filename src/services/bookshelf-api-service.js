@@ -2,7 +2,8 @@ import TokenService from '../services/token-service'
 import config from '../config'
 
 const BookshelfApiService = {
-  postBookToBookshelf(bookshelf_id, book_id) {
+  postBookToBookshelf(book_id) {
+    console.log('book_id', book_id)
     return fetch(`${config.API_ENDPOINT}/bookshelf`, {
       method: 'POST',
       headers: {
@@ -10,7 +11,7 @@ const BookshelfApiService = {
         'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
       body: {
-        bookshelf_id: bookshelf_id,
+        // bookshelf_id: bookshelf_id,
         book_id: book_id,
       },
     })

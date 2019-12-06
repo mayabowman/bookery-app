@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 100;
+  text-align: center;
+}
+
+button{
+  border: 1px solid #696969;
+  font-size: 14px;
+  padding: 3%;
+}
+
+/* .hamburger {
+  color: #696969;
+  text-align: right;
+} */
+
+@media (min-width: 768px) {
+  header {
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    padding: 10%;
+  }
+  .content {
+    padding: 5%;
+  }
+
+  /* .hamburger {
+    display: none;
+  } */
+}

@@ -1,6 +1,5 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
-import Nav from '../Nav/Nav'
 import LandingPage from '../LandingPage/LandingPage'
 import SignUp from '../SignUp/SignUp'
 import LogIn from '../LogIn/LogIn'
@@ -10,6 +9,8 @@ import ReviewForm from '../ReviewForm/ReviewForm'
 import Book from '../Book/Book'
 import BookshelfApiService from '../services/bookshelf-api-service'
 import config from '../config'
+import './App.css'
+import Nav from '../Nav/Nav'
 
 class App extends React.Component {
   constructor(props) {
@@ -44,10 +45,9 @@ class App extends React.Component {
 
   handleAddToBookshelf = (id) => {
     debugger
-    console.log(BookshelfApiService)
+    console.log('id', id)
     console.log('function called in app handleAddToBookshelf')
     BookshelfApiService.postBookToBookshelf(id)
-    console.log('id', id)
     this.setState({
       bookshelf: !this.state.bookshelf.includes(id)
                   ? [...this.state.bookshelf, id]

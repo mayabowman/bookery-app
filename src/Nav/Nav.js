@@ -2,8 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import TokenService from '../services/token-service'
 
-
-
 class Nav extends React.Component {
   handleLogoutClick = () => {
     TokenService.clearAuthToken()
@@ -32,7 +30,7 @@ class Nav extends React.Component {
 
   render() {
     return (
-      <nav className='Nav'>
+      <nav className='Nav' role='navigation'>
         <Link to={'/'}>
           Home
         </Link>

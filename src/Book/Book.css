@@ -1,4 +1,38 @@
+.add-book-button {
+  margin: 5px;
+}
+
+.booklist-item {
+  border: 1px solid #696969;
+  margin: 15px;
+  padding: 5%;
+}
+
 img {
   height: 100px;
   width: 75px;
+}
+
+@media (min-width: 768px) {
+  header {
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    padding: 10%;
+  }
+  .add-book-button {
+    margin: 5px;
+    padding: 20px;
+  }
+
+  .booklist-item {
+    border: 1px solid #696969;
+    margin: 80px;
+    padding: 50px;
+  }
+
+  img {
+    height: 200px;
+    width: 150px;
+  }
 }

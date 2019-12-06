@@ -1,5 +1,6 @@
 import React from 'react'
 import AuthApiService from '../services/auth-api-service'
+import './SignUp.css'
 
 
 class SignUp extends React.Component {
@@ -68,10 +69,11 @@ class SignUp extends React.Component {
           </div>
           <div>
             <label htmlFor='email'>Email</label>
-            <input
+             <input
               type='text'
               name='email'
               id='email'
+              placeholder='Email'
             />
           </div>
           <div>
@@ -80,6 +82,7 @@ class SignUp extends React.Component {
               type='password'
               name='password'
               id='password'
+              placeholder='Password'
             />
           </div>
           <button type='submit'>

@@ -1,0 +1,45 @@
+input {
+  border: 1px solid #696969;
+  display: block;
+  font-size: 1em;
+  margin: 8%;
+  padding: 3%;
+  text-align: left;
+  width: 80%;
+}
+
+label {
+  text-align: right;
+  display: block;
+  clear: both;
+  float: left;
+  margin: 8%;
+}
+
+@media (min-width: 768px) {
+  header {
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    padding: 10%;
+  }
+
+  input {
+    border: 1px solid #696969;
+    display: block;
+    font-size: 1em;
+    margin: 50px;
+    padding: 20px;
+    text-align: left;
+    width: 80%;
+  }
+
+  label {
+    text-align: right;
+    display: block;
+    clear: both;
+    float: left;
+    margin: 50px;
+    margin-bottom: 20px;
+  }
+}

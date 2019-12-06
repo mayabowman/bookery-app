@@ -4,9 +4,9 @@ import './Book.css'
 class Book extends React.Component {
   render() {
     return (
-      <div>
+      <div className='booklist-item'>
         <h2>{this.props.book.title}</h2>
-        <p>Author: {this.props.book.author}</p>
+        <h3>Author: {this.props.book.author}</h3>
         <div>
           <img
             src={this.props.book.graphic}
@@ -14,6 +14,7 @@ class Book extends React.Component {
           />
         </div>
         <button
+          className='add-book-button'
           id={this.props.book.id}
           onClick={() => this.props.handleAddToBookshelf(this.props.book.id)}
         >

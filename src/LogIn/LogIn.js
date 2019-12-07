@@ -22,12 +22,13 @@ class LogIn extends React.Component {
     e.preventDefault()
     this.setState({ error: null })
     const { email, password } = e.target
-
+    debugger
     AuthApiService.postLogin({
       user_email: email.value,
       password: password.value
     })
       .then(res => {
+
         email.value = ''
         password.value = ''
         TokenService.saveAuthToken(res.authToken)
@@ -46,11 +47,11 @@ class LogIn extends React.Component {
           onSubmit={this.handleSubmitJwtAuth}
         >
           <div className='username-login'>
-            <label htmlFor='username-login'>Email: </label>
+            <label htmlFor='username-login'>Email Address</label>
             <input type='email' name='email' required />
           </div>
           <div className='password-login'>
-            <label htmlFor='password-login'>Password: </label>
+            <label htmlFor='password-login'>Password</label>
             <input type='password' name='password' required />
           </div>
           <div>

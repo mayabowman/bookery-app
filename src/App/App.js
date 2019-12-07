@@ -8,6 +8,7 @@ import Bookshelf from '../Bookshelf/Bookshelf'
 import ReviewForm from '../ReviewForm/ReviewForm'
 import Book from '../Book/Book'
 import BookshelfApiService from '../services/bookshelf-api-service'
+import BookshelfContext from '../contexts/BookshelfContext'
 import config from '../config'
 import './App.css'
 import Nav from '../Nav/Nav'
@@ -21,6 +22,8 @@ class App extends React.Component {
       error: null
     }
   }
+
+  static contextType = BookshelfContext
 
   componentDidMount() {
     fetch(`${config.API_ENDPOINT}/books`)
@@ -47,7 +50,7 @@ class App extends React.Component {
     debugger
     console.log('id', id)
     console.log('function called in app handleAddToBookshelf')
-    BookshelfApiService.postBookToBookshelf(id)
+    BookshelfApiService.postBookshelfItem(id, 'dummy text', '3')
     this.setState({
       bookshelf: !this.state.bookshelf.includes(id)
                   ? [...this.state.bookshelf, id]

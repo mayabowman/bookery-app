@@ -68,7 +68,7 @@ class SignUp extends React.Component {
             />
           </div>
           <div>
-            <label htmlFor='email'>Email</label>
+            <label htmlFor='email'>Email Address</label>
              <input
               type='text'
               name='email'

@@ -32,9 +32,21 @@ export class BookshelfProvider extends React.Component {
     this.setState({ reviews })
   }
 
+  setBooks = books => {
+    this.setState({ books })
+  }
+
   addReview = review => {
     this.setReviews([
-      ...this.state.reviews
+      ...this.state.reviews,
+      review
+    ])
+  }
+
+  addBook = book => {
+    this.setBooks([
+      ...this.state.bookshelf,
+      book
     ])
   }
 

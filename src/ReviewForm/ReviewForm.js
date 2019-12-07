@@ -9,7 +9,7 @@ class ReviewForm extends React.Component {
     e.preventDefault()
     const { bookshelf } = this.context
     const { text } = e.target
-    BookshelfApiService.postReview(bookshelf.id, text.value)
+    BookshelfApiService.postBookshelfItem(bookshelf.id, text.value)
       .then(this.context.addReview)
       .then(() => {
         text.value = ''
@@ -38,6 +38,8 @@ class ReviewForm extends React.Component {
             Post Review
           </button>
         </div>
+        <input type='hidden' name='review' id='review' value='dummy' />
+        <input type='hidden' name='rating' id='rating' value='1' />
       </form>
     )
   }

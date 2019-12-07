@@ -10,15 +10,15 @@ class Bookshelf extends React.Component {
 
     this.state = {
       bookshelf: [],
-      ratings: {}
+      // ratings: {}
     }
   }
 
-  onStarClick(nextValue, prevValue, name) {
-    const newRatings = this.state.ratings
-    newRatings[name] = nextValue
-    this.setState({ ratings: newRatings })
-  }
+  // onStarClick(nextValue, prevValue, name) {
+  //   const newRatings = this.state.ratings
+  //   newRatings[name] = nextValue
+  //   this.setState({ ratings: newRatings })
+  // }
 
   handleRemoveBook = (id) => {
     console.log("function called in Bookshelf handleRemoveBook")
@@ -58,18 +58,19 @@ class Bookshelf extends React.Component {
     const booksToDisplay = this.state.bookshelf.map((book, i) => (
       <div key={i} className='displayed-books'>
         <p>{book.title}</p>
-        <StarRatingComponent
+        {/* <StarRatingComponent
           name={`rate${i}`}
           starCount={5}
           value={this.state.ratings[`rate${i}`]}
           onStarClick={this.onStarClick.bind(this)}
-        />
+        /> */}
         <div>
           <Link to='/reviewform'>
             <button>
               Add Review
             </button>
           </Link>
+          {' '}
           <button
             id={book.id}
             onClick={() => this.handleRemoveBook(book.id)}

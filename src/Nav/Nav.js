@@ -12,6 +12,7 @@ class Nav extends React.Component {
       <Link
         onClick={this.handleLogoutClick}
         to='/'
+        className='rightnav'
       >
         Log Out
       </Link>
@@ -22,6 +23,7 @@ class Nav extends React.Component {
     return (
       <Link
         to='/signup'
+        className='rightnav'
       >
         Sign Up
       </Link>
@@ -31,15 +33,15 @@ class Nav extends React.Component {
   render() {
     return (
       <nav className='Nav' role='navigation'>
-        <Link to={'/'}>
-          Home
+        <Link to={'/'} className='leftnav'>
+          bookery.
         </Link>
         {' '}
-        <Link to={'/browsebooks'}>
+        <Link to={'/browsebooks'} className='rightnav'>
           Browse Books
         </Link>
         {' '}
-        <Link to={'/bookshelf'}>
+        <Link to={'/bookshelf'} className='rightnav'>
           My Bookshelf
         </Link>
         {' '}

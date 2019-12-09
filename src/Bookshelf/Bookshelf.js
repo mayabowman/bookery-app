@@ -1,8 +1,9 @@
 import React from 'react'
-import StarRatingComponent from 'react-star-rating-component'
+// import StarRatingComponent from 'react-star-rating-component'
 import config from '../config'
 import { Link } from 'react-router-dom'
 import BookshelfApiService from '../services/bookshelf-api-service'
+import './Bookshelf.css'
 
 class Bookshelf extends React.Component {
   constructor(props) {
@@ -46,6 +47,8 @@ class Bookshelf extends React.Component {
           bookshelf: data,
           error: null
         })
+        console.log('data', data)
+        console.log('bookshelf', this.state.bookshelf[0])
       })
       .catch(err => {
         this.setState({
@@ -55,31 +58,35 @@ class Bookshelf extends React.Component {
   }
 
   render() {
-    const booksToDisplay = this.state.bookshelf.map((book, i) => (
-      <div key={i} className='displayed-books'>
-        <p>{book.title}</p>
-        {/* <StarRatingComponent
-          name={`rate${i}`}
-          starCount={5}
-          value={this.state.ratings[`rate${i}`]}
-          onStarClick={this.onStarClick.bind(this)}
-        /> */}
-        <div>
-          <Link to='/reviewform'>
-            <button>
-              Add Review
+    console.log('bookshelf', this.state.bookshelf[0])
+    const booksToDisplay = this.state.bookshelf.map((book, i) => {
+      return (
+        <div key={i} className='displayed-books'>
+          <p>{book.title}</p>
+          {/* <StarRatingComponent
+            name={`rate${i}`}
+            starCount={5}
+            value={this.state.ratings[`rate${i}`]}
+            onStarClick={this.onStarClick.bind(this)}
+          /> */}
+          <div>
+            <Link to='/reviewform'>
+              <button className='add-review-button'>
+                Add Review
+              </button>
+            </Link>
+            {' '}
+            <button
+              className='delete-button'
+              id={book.id}
+              onClick={() => this.handleRemoveBook(book.id)}
+            >
+              Delete
             </button>
-          </Link>
-          {' '}
-          <button
-            id={book.id}
-            onClick={() => this.handleRemoveBook(book.id)}
-          >
-            Delete
-          </button>
+          </div>
         </div>
-      </div>
-    ))
+      )
+    })
     return (
       <div>
         <h1>Your Bookshelf</h1>

@@ -59,6 +59,7 @@ class Bookshelf extends React.Component {
 
   render() {
     console.log('bookshelf', this.state.bookshelf[0])
+    console.log('books', this.state.bookshelf.books)
     const booksToDisplay = this.state.bookshelf.map((book, i) => {
       return (
         <div key={i} className='displayed-books'>

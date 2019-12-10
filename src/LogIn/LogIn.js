@@ -23,7 +23,6 @@ class LogIn extends React.Component {
     e.preventDefault()
     this.setState({ error: null })
     const { email, password } = e.target
-    debugger
     AuthApiService.postLogin({
       user_email: email.value,
       password: password.value

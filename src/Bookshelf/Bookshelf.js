@@ -22,6 +22,7 @@ class Bookshelf extends React.Component {
   // }
 
   handleRemoveBook = (id) => {
+    debugger
     console.log("function called in Bookshelf handleRemoveBook")
     BookshelfApiService.deleteBookshelfItem(id)
     let array = [...this.state.bookshelf]
@@ -82,8 +83,8 @@ class Bookshelf extends React.Component {
             {' '}
             <button
               className='delete-button'
-              id={bookshelfItem.books.id}
-              onClick={() => this.handleRemoveBook(bookshelfItem.books.id)}
+              id={bookshelfItem.id}
+              onClick={() => this.handleRemoveBook(bookshelfItem.id)}
             >
               Delete
             </button>

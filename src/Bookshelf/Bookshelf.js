@@ -22,17 +22,16 @@ class Bookshelf extends React.Component {
   // }
 
   handleRemoveBook = (id) => {
-    debugger
+    // debugger
     console.log("function called in Bookshelf handleRemoveBook")
     BookshelfApiService.deleteBookshelfItem(id)
     let array = [...this.state.bookshelf]
-    let index = array.indexOf(id)
-    if (index !== -1) {
-      array.splice(index, 1)
-      console.log('array',array)
+    if (array.find(bookshelfItem => bookshelfItem.id === id)) {
+      array = array.filter(bookshelfItem => bookshelfItem.id !== id)
       this.setState({ bookshelf: array })
-      console.log(this.state.bookshelf)
     }
+    console.log('array', array)
+
   }
 
   componentDidMount() {

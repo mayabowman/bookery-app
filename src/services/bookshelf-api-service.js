@@ -3,8 +3,6 @@ import config from '../config'
 
 const BookshelfApiService = {
   postBookshelfItem(book_id, review, rating) {
-    console.log('book_id', book_id)
-    debugger
     return fetch(`${config.API_ENDPOINT}/bookshelf`, {
       method: 'POST',
       headers: {
@@ -12,7 +10,6 @@ const BookshelfApiService = {
         'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify({
-        // user_id: user_id,
         book_id: book_id,
         review: review,
         rating: rating
@@ -25,24 +22,25 @@ const BookshelfApiService = {
       )
   },
 
-  // postReview(bookshelfId, text) {
-  //   return fetch(`${config.API_ENDPOINT}/bookshelf`, {
-  //     method: 'POST',
-  //     headers: {
-  //       'content-type': 'application/json',
-  //       'authorization': `bearer ${TokenService.getAuthToken()}`,
-  //     },
-  //     body: JSON.stringify({
-  //       bookshelf_id: bookshelfId,
-  //       text,
-  //     }),
-  //   })
-  //     .then(res =>
-  //       (!res.ok)
-  //         ? res.json().then(e => Promise.reject(e))
-  //         : res.json()
-  //     )
-  // },
+  updateBookshelfItem(bookshelfItemId, book_id, review, rating) {
+    return fetch(`${config.API_ENDPOINT}/bookshelf/${bookshelfItemId}`, {
+      method: 'PATCH',
+      headers: {
+        'content-type': 'application/json',
+        'authorization': `bearer ${TokenService.getAuthToken()}`
+      },
+      body: JSON.stringify({
+        book_id: book_id,
+        review: review,
+        rating: rating
+      }),
+    })
+      .then(res =>
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res
+      )
+  },
 
   deleteBookshelfItem(bookshelfItemId) {
     return fetch(`${config.API_ENDPOINT}/bookshelf/${bookshelfItemId}`, {

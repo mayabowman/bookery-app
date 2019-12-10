@@ -9,6 +9,7 @@ const BookshelfContext = React.createContext({
   reviews: [],
   error: null,
   addReview: () => {},
+  insertReview: () => {}
 })
 
 export default BookshelfContext
@@ -40,6 +41,12 @@ export class BookshelfProvider extends React.Component {
     this.setReviews([
       ...this.state.reviews,
       review
+    ])
+  }
+
+  updateReview = review => {
+    this.setReviews([
+      ...this.state.reviews
     ])
   }
 

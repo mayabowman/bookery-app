@@ -1,6 +1,7 @@
 import React from 'react'
 import TokenService from '../services/token-service'
 import AuthApiService from '../services/auth-api-service'
+import './LogIn.css'
 
 class LogIn extends React.Component {
   static defaultProps = {
@@ -41,7 +42,7 @@ class LogIn extends React.Component {
 
   render() {
     return (
-      <section>
+      <div className='login-form'>
         <form
           id='log-in'
           onSubmit={this.handleSubmitJwtAuth}
@@ -63,7 +64,7 @@ class LogIn extends React.Component {
         <div className='error-message'>
           {this.state.error}
         </div>
-      </section>
+      </div>
     )
   }
 }

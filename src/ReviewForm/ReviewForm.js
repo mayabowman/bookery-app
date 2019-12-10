@@ -1,16 +1,17 @@
 import React from 'react'
 import BookshelfContext from '../contexts/BookshelfContext'
 import BookshelfApiService from '../services/bookshelf-api-service'
+import './ReviewForm.css'
 
 class ReviewForm extends React.Component {
   static contextType = BookshelfContext
 
-  handlSubmit = e => {
+  handleSubmit = e => {
     e.preventDefault()
     const { bookshelf } = this.context
     const { text } = e.target
-    BookshelfApiService.postBookshelfItem(bookshelf.id, text.value)
-      .then(this.context.addReview)
+    BookshelfApiService.updateBookshelfItem(bookshelf.books.id, text.value)
+      .then(this.context.updateReview)
       .then(() => {
         text.value = ''
       })
@@ -22,19 +23,19 @@ class ReviewForm extends React.Component {
       <form className='addReview'>
         <h2>Add Review</h2>
         <label htmlFor='review'>What did you think?</label>
-        <div>
+        <div className='review-textarea'>
           <textarea
             required
             aria-label='Type your review...'
             id='review'
             name='review'
-            cols='30'
-            rows='5'
+            cols='50'
+            rows='10'
             placeholder='Type your review...'
           ></textarea>
         </div>
         <div>
-          <button type='submit'>
+          <button type='submit' className='review-submit-button'>
             Post Review
           </button>
         </div>

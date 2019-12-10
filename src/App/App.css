@@ -23,14 +23,21 @@ button {
 } */
 
 @media (min-width: 768px) {
+  button {
+    margin: 5px;
+    padding: 1%;
+    font-size: 15px;
+  }
+
+  .content {
+    padding: 2%;
+  }
+
   header {
     position: fixed;
     width: 100%;
     z-index: 100;
     padding: 10%;
-  }
-  .content {
-    padding: 2%;
   }
 
   /* .hamburger {

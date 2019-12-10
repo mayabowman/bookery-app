@@ -47,8 +47,6 @@ class Bookshelf extends React.Component {
           bookshelf: data,
           error: null
         })
-        console.log('data', data)
-        console.log('bookshelf', this.state.bookshelf[0])
       })
       .catch(err => {
         this.setState({
@@ -58,12 +56,17 @@ class Bookshelf extends React.Component {
   }
 
   render() {
-    console.log('bookshelf', this.state.bookshelf[0])
-    console.log('books', this.state.bookshelf.books)
-    const booksToDisplay = this.state.bookshelf.map((book, i) => {
+    const booksToDisplay = this.state.bookshelf.map((bookshelfItem, i) => {
       return (
         <div key={i} className='displayed-books'>
-          <p>{book.title}</p>
+          <h2>{bookshelfItem.books.title}</h2>
+          <h3>Author: {bookshelfItem.books.author}</h3>
+          <div>
+            <img
+              src={bookshelfItem.books.graphic}
+              alt='book cover'
+            />
+          </div>
           {/* <StarRatingComponent
             name={`rate${i}`}
             starCount={5}
@@ -79,8 +82,8 @@ class Bookshelf extends React.Component {
             {' '}
             <button
               className='delete-button'
-              id={book.id}
-              onClick={() => this.handleRemoveBook(book.id)}
+              id={bookshelfItem.books.id}
+              onClick={() => this.handleRemoveBook(bookshelfItem.books.id)}
             >
               Delete
             </button>

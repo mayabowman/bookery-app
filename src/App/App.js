@@ -12,6 +12,8 @@ import BookshelfContext from '../contexts/BookshelfContext'
 import config from '../config'
 import './App.css'
 import Nav from '../Nav/Nav'
+// import SideDrawer from '../SideDrawer/SideDrawer'
+// import Backdrop from '../Backdrop/Backdrop'
 
 class App extends React.Component {
   constructor(props) {
@@ -19,11 +21,22 @@ class App extends React.Component {
     this.state = {
       books: [],
       bookshelf: [],
-      error: null
+      error: null,
+      sideDrawerOpen: false,
     }
   }
 
   static contextType = BookshelfContext
+
+  drawerToggleClickHandler = () => {
+    this.setState((prevState) => {
+      return {sideDrawerOpen: !prevState.sideDrawerOpen}
+    })
+  }
+
+  backdropClickHandler = () => {
+    this.setState({ sideDrawerOpen: false })
+  }
 
   componentDidMount() {
     fetch(`${config.API_ENDPOINT}/books`)
@@ -62,10 +75,17 @@ class App extends React.Component {
     let updatedBooks = Object.keys(books).map((book, i) => (
       <Book key={i} id={i} book={books[book]} handleAddToBookshelf={this.handleAddToBookshelf}/>
     ))
+    // let backdrop
+
+    // if (this.state.sideDrawerOpen) {
+    //   backdrop = <Backdrop click={this.backdropClickHandler}/>
+    // }
 
     return (
-      <main className="App">
-        <Nav />
+      <main className="App" style={{height: '100%' }}>
+        <Nav drawerClickHandler={this.drawerToggleClickHandler}/>
+        {/* <SideDrawer show={this.state.sideDrawerOpen}/>
+        {backdrop} */}
         <Switch>
           <>
             <div className='content' aria-live='polite'>

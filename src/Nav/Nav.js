@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import TokenService from '../services/token-service'
+import DrawerToggleButton from '../SideDrawer/DrawerToggleButton'
+import './Nav.css'
 
 class Nav extends React.Component {
   handleLogoutClick = () => {
@@ -12,9 +14,9 @@ class Nav extends React.Component {
       <Link
         onClick={this.handleLogoutClick}
         to='/'
-        className='rightnav'
+        className='text-link'
       >
-        Log Out
+        <span className='keep-white'>|</span> Log Out
       </Link>
     )
   }
@@ -23,7 +25,7 @@ class Nav extends React.Component {
     return (
       <Link
         to='/signup'
-        className='rightnav'
+        className='text-link'
       >
         Sign Up
       </Link>
@@ -32,23 +34,32 @@ class Nav extends React.Component {
 
   render() {
     return (
-      <nav className='Nav' role='navigation'>
-        <Link to={'/'} className='leftnav'>
-          bookery.
-        </Link>
-        {' '}
-        <Link to={'/browsebooks'} className='rightnav'>
-          Browse Books
-        </Link>
-        {' '}
-        <Link to={'/bookshelf'} className='rightnav'>
-          My Bookshelf
-        </Link>
-        {' '}
-        {TokenService.hasAuthToken()
-          ? this.renderLogoutLink()
-          : this.renderLoginLink()}
-      </nav>
+      <header className='navbar'>
+        <nav className='navbar-navigation' role='navigation'>
+          <div className='navbar-toggle-button'>
+            <DrawerToggleButton click={this.props.drawerClickHandler}/>
+          </div>
+          <div className='navbar-logo'>
+          <Link to={'/'} className='text-link'>
+            bookery.
+          </Link>
+          </div>
+          <div className='spacer' />
+          <div className='navbar-nav-items'>
+            <Link to={'/browsebooks'} className='text-link'>
+              Browse Books <span className='keep-white'>|</span>
+            </Link>
+            {' '}
+            <Link to={'/bookshelf'} className='text-link'>
+              My Bookshelf
+            </Link>
+            {' '}
+            {TokenService.hasAuthToken()
+              ? this.renderLogoutLink()
+              : this.renderLoginLink()}
+          </div>
+        </nav>
+      </header>
     )
   }
 }

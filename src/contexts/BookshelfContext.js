@@ -46,7 +46,8 @@ export class BookshelfProvider extends React.Component {
 
   updateReview = review => {
     this.setReviews([
-      ...this.state.reviews
+      ...this.state.reviews,
+      review
     ])
   }
 

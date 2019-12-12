@@ -27,6 +27,7 @@ button {
     margin: 5px;
     padding: 1%;
     font-size: 15px;
+    cursor: pointer;
   }
 
   .content {
@@ -37,7 +38,8 @@ button {
     position: fixed;
     width: 100%;
     z-index: 100;
-    padding: 10%;
+    padding: 2%;
+    color: white;
   }
 
   /* .hamburger {

@@ -22,7 +22,6 @@ class Bookshelf extends React.Component {
   // }
 
   handleRemoveBook = (id) => {
-    // debugger
     console.log("function called in Bookshelf handleRemoveBook")
     BookshelfApiService.deleteBookshelfItem(id)
     let array = [...this.state.bookshelf]
@@ -74,7 +73,12 @@ class Bookshelf extends React.Component {
             onStarClick={this.onStarClick.bind(this)}
           /> */}
           <div>
-            <Link to='/reviewform'>
+            <Link to={{
+              pathname: '/reviewform',
+              state: {
+                bookshelfItem: bookshelfItem
+              }
+            }}>
               <button className='add-review-button'>
                 Add Review
               </button>

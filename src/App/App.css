@@ -17,11 +17,6 @@ button {
   padding: 3%;
 }
 
-/* .hamburger {
-  color: #696969;
-  text-align: right;
-} */
-
 @media (min-width: 768px) {
   button {
     margin: 5px;
@@ -41,8 +36,4 @@ button {
     padding: 2%;
     color: white;
   }
-
-  /* .hamburger {
-    display: none;
-  } */
 }

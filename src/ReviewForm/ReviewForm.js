@@ -20,49 +20,52 @@ class ReviewForm extends React.Component {
   }
 
   handleSubmit(event) {
-
+    debugger
     console.log('function handleSubmit called in ReviewForm')
     event.preventDefault()
     // const { bookshelfItem } = this.props.location.state
-    const { text } = event.target.value
-    console.log('text', event.target.value)
+    const text = this.state.textValue
+    console.log('text', text)
+    console.log('boookshelfItem.id', this.bookshelfItem.id)
     BookshelfApiService.updateBookshelfItem(this.bookshelfItem.id, text)
       .then(() => {
-        text.value = ''
+        this.setState({ textValue: ''})
       })
       .catch(this.context.setError)
   }
 
   render() {
     return (
-      <form className='addReview' onSubmit={this.handleSubmit}>
-        <h2>Add Review</h2>
-        <label htmlFor='review'>
-          What did you think of {this.bookshelfItem.books.title}?
-          <textarea
-            required
-            aria-label='Type your review...'
-            id='review'
-            name='review'
-            cols='50'
-            rows='10'
-            value={this.state.textValue} onChange={this.handleChange}
-            placeholder='Type your review...'
-          />
-        </label>
-        <input type="submit" value="Submit" />
-        {/* <div>
-          <button
-            type='submit'
-            className='review-submit-button'
-            onClick={e => {this.handleSubmit(e)}}
-          >
-            Post Review
-          </button>
-        </div> */}
-        <input type='hidden' name='review' id='review' value='dummy' />
-        <input type='hidden' name='rating' id='rating' value='1' />
-      </form>
+      <div className='review-form-div'>
+        <form className='addReview' onSubmit={this.handleSubmit}>
+          <h2>Add Review</h2>
+          <label htmlFor='review'>
+            What did you think of {this.bookshelfItem.books.title}?
+            <textarea
+              required
+              aria-label='Type your review...'
+              id='review'
+              name='review'
+              cols='50'
+              rows='10'
+              value={this.state.textValue} onChange={this.handleChange}
+              placeholder='Type your review...'
+            />
+          </label>
+          <input type="submit" value="Submit" />
+          {/* <div>
+            <button
+              type='submit'
+              className='review-submit-button'
+              onClick={e => {this.handleSubmit(e)}}
+            >
+              Post Review
+            </button>
+          </div> */}
+          <input type='hidden' name='review' id='review' value='dummy' />
+          <input type='hidden' name='rating' id='rating' value='1' />
+        </form>
+      </div>
     )
   }
 }

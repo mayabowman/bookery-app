@@ -22,7 +22,7 @@ const BookshelfApiService = {
       )
   },
 
-  updateBookshelfItem(bookshelfItemId, book_id, review, rating) {
+  updateBookshelfItem(bookshelfItemId, review) {
     return fetch(`${config.API_ENDPOINT}/bookshelf/${bookshelfItemId}`, {
       method: 'PATCH',
       headers: {
@@ -30,9 +30,9 @@ const BookshelfApiService = {
         'authorization': `bearer ${TokenService.getAuthToken()}`
       },
       body: JSON.stringify({
-        book_id: book_id,
+        // book_id: book_id,
         review: review,
-        rating: rating
+        // rating: rating
       }),
     })
       .then(res =>

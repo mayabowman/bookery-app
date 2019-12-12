@@ -2,6 +2,14 @@ textarea {
   border: 1px solid #696969;
 }
 
+.review-form-div {
+  text-align: center;
+}
+
+form {
+  display: inline-block
+}
+
 @media (min-width: 768px) {
   header {
     position: fixed;

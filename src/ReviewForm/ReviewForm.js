@@ -20,10 +20,8 @@ class ReviewForm extends React.Component {
   }
 
   handleSubmit(event) {
-    debugger
     console.log('function handleSubmit called in ReviewForm')
     event.preventDefault()
-    // const { bookshelfItem } = this.props.location.state
     const text = this.state.textValue
     console.log('text', text)
     console.log('boookshelfItem.id', this.bookshelfItem.id)
@@ -39,8 +37,12 @@ class ReviewForm extends React.Component {
       <div className='review-form-div'>
         <form className='addReview' onSubmit={this.handleSubmit}>
           <h2>Add Review</h2>
+          <div>
+            <h3>Here's what people are saying...</h3>
+            {this.bookshelfItem.review}
+          </div>
           <label htmlFor='review'>
-            What did you think of {this.bookshelfItem.books.title}?
+            <h2>What did you think of {this.bookshelfItem.books.title}?</h2>
             <textarea
               required
               aria-label='Type your review...'

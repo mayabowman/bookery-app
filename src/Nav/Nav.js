@@ -41,7 +41,7 @@ class Nav extends React.Component {
           </div>
           <div className='navbar-logo'>
           <Link to={'/'} className='text-link'>
-            bookery.
+            bookery<span className='keep-white'>.</span>
           </Link>
           </div>
           <div className='spacer' />

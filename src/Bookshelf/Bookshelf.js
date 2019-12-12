@@ -80,7 +80,7 @@ class Bookshelf extends React.Component {
               }
             }}>
               <button className='add-review-button'>
-                Add Review
+                View / Add Review
               </button>
             </Link>
             {' '}

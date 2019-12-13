@@ -39,7 +39,7 @@ class SideDrawer extends React.Component {
 
     return (
       <nav className={drawerClasses}>
-        <div className='navbar-nav-items'>
+        <div className='side-drawer__navbar-nav-items'>
           <Link to={'/browsebooks'} className='side-drawer__text-link'>
             Browse Books
           </Link>

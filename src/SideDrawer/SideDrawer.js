@@ -43,11 +43,9 @@ class SideDrawer extends React.Component {
           <Link to={'/browsebooks'} className='side-drawer__text-link'>
             Browse Books
           </Link>
-          {' '}
           <Link to={'/bookshelf'} className='side-drawer__text-link'>
             My Bookshelf
           </Link>
-          {' '}
           {TokenService.hasAuthToken()
             ? this.renderLogoutLink()
             : this.renderLoginLink()}

@@ -15,7 +15,7 @@
 .side-drawer.open {
   transform: translateX(0);
 }
-.text-link {
+.side-drawer__text-link {
   height: 100;
   text-decoration: none;
   display: flex;
@@ -26,8 +26,8 @@
   color: #696969;
 }
 
-.text-link:hover,
-.text-link:active {
+.side-drawer__text-link:hover,
+.side-drawer__text-link:active {
   color: #00BFFF;
   cursor: pointer;
 }

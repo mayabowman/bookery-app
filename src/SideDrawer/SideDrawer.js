@@ -16,7 +16,7 @@ class SideDrawer extends React.Component {
       <Link
         onClick={this.handleLogoutClick}
         to='/'
-        className='text-link'
+        className='side-drawer__text-link'
       >
         | Log Out
       </Link>
@@ -27,7 +27,7 @@ class SideDrawer extends React.Component {
     return (
       <Link
         to='/signup'
-        className='text-link'
+        className='side-drawer__text-link'
       >
         Sign Up
       </Link>
@@ -43,11 +43,11 @@ class SideDrawer extends React.Component {
     return (
       <nav className={drawerClasses}>
         <div className='navbar-nav-items'>
-              <Link to={'/browsebooks'} className='text-link'>
+              <Link to={'/browsebooks'} className='side-drawer__text-link'>
                 Browse Books |
               </Link>
               {' '}
-              <Link to={'/bookshelf'} className='text-link'>
+              <Link to={'/bookshelf'} className='side-drawer__text-link'>
                 My Bookshelf
               </Link>
               {' '}

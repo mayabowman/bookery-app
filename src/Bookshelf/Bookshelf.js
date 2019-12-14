@@ -54,8 +54,22 @@ class Bookshelf extends React.Component {
       })
   }
 
+
+
   render() {
-    const booksToDisplay = this.state.bookshelf.map((bookshelfItem, i) => {
+    console.log('bookshelf', this.state.bookshelf)
+    const allBooksIds = this.state.bookshelf.map(item => {
+      return item.book_id
+    })
+    const uniqueBookIds = Array.from(new Set(allBooksIds))
+    const uniqueBooks = uniqueBookIds.map(item => {
+      const uniqueBook = this.state.bookshelf.find(x => {
+        return x.book_id === item
+      })
+      return uniqueBook
+    })
+
+    const booksToDisplay = uniqueBooks.map((bookshelfItem, i) => {
       return (
         <div key={i} className='displayed-books'>
           <h2>{bookshelfItem.books.title}</h2>
@@ -76,7 +90,8 @@ class Bookshelf extends React.Component {
             <Link to={{
               pathname: '/reviewform',
               state: {
-                bookshelfItem: bookshelfItem
+                bookshelfItem: bookshelfItem,
+                bookshelf: this.state.bookshelf
               }
             }}>
               <button className='add-review-button'>

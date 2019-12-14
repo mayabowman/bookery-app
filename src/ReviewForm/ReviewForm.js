@@ -10,6 +10,10 @@ class ReviewForm extends React.Component {
       textValue: ''
     }
     this.bookshelfItem = this.props.location.state.bookshelfItem
+    this.bookshelf = this.props.location.state.bookshelf
+    this.bookshelf = this.bookshelf.filter(item => {
+      return item.book_id === this.bookshelfItem.book_id
+    })
 
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -20,11 +24,8 @@ class ReviewForm extends React.Component {
   }
 
   handleSubmit(event) {
-    console.log('function handleSubmit called in ReviewForm')
     event.preventDefault()
     const text = this.state.textValue
-    console.log('text', text)
-    console.log('boookshelfItem.id', this.bookshelfItem.id)
     BookshelfApiService.updateBookshelfItem(this.bookshelfItem.id, text)
       .then(() => {
         this.setState({ textValue: ''})
@@ -32,14 +33,24 @@ class ReviewForm extends React.Component {
       .catch(this.context.setError)
   }
 
+
+
   render() {
+    const reviews = this.bookshelf.map((bookshelfItem, i) => {
+      return (
+        <div key={i} className='displayed-review'>
+          <h2>{bookshelfItem.review}</h2>
+        </div>
+      )
+    })
+
     return (
       <div className='review-form-div'>
         <form className='addReview' onSubmit={this.handleSubmit}>
           <h2>Add Review</h2>
           <div>
             <h3>Here's what people are saying...</h3>
-            {this.bookshelfItem.review}
+            {reviews}
           </div>
           <label htmlFor='review'>
             <h2>What did you think of {this.bookshelfItem.books.title}?</h2>
@@ -54,16 +65,7 @@ class ReviewForm extends React.Component {
               placeholder='Type your review...'
             />
           </label>
-          <input type="submit" value="Submit" />
-          {/* <div>
-            <button
-              type='submit'
-              className='review-submit-button'
-              onClick={e => {this.handleSubmit(e)}}
-            >
-              Post Review
-            </button>
-          </div> */}
+          <input type="submit" value="Submit" className='submit-review-button' />
           <input type='hidden' name='review' id='review' value='dummy' />
           <input type='hidden' name='rating' id='rating' value='1' />
         </form>

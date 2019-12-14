@@ -1,13 +1,20 @@
+form {
+  display: inline-block;
+}
+
+.review-submit-button {
+  margin: 5px;
+  padding: 1%;
+  font-size: 15px;
+  cursor: pointer;
+}
+
 textarea {
   border: 1px solid #696969;
 }
 
 .review-form-div {
   text-align: center;
-}
-
-form {
-  display: inline-block;
 }
 
 @media (min-width: 768px) {

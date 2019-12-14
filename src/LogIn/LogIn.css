@@ -17,7 +17,7 @@ label {
 }
 
 form {
-  margin-top: 50px;
+  margin-top: 15px;
 }
 
 @media (min-width: 768px) {
@@ -48,6 +48,6 @@ form {
   }
 
   .login-form {
-    margin: 7%;
+    margin-top: 10px;
   }
 }

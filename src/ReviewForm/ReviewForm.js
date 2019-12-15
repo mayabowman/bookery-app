@@ -39,35 +39,36 @@ class ReviewForm extends React.Component {
     const reviews = this.bookshelf.map((bookshelfItem, i) => {
       return (
         <div key={i} className='displayed-review'>
-          <h2>{bookshelfItem.review}</h2>
+          {bookshelfItem.review}
         </div>
       )
     })
-
     return (
       <div className='review-form-div'>
         <form className='addReview' onSubmit={this.handleSubmit}>
           <h2>Add Review</h2>
           <div>
-            <h3>Here's what people are saying...</h3>
-            {reviews}
+            <h3>Here's what people are saying about {this.bookshelfItem.books.title}...</h3>
+            {reviews} -{this.bookshelfItem.reviewer.first_name}
           </div>
-          <label htmlFor='review'>
-            <h2>What did you think of {this.bookshelfItem.books.title}?</h2>
+          <label htmlFor='review' className='review-label'>
+            What did you think?
             <textarea
               required
               aria-label='Type your review...'
               id='review'
               name='review'
-              cols='50'
+              cols='80'
               rows='10'
               value={this.state.textValue} onChange={this.handleChange}
               placeholder='Type your review...'
             />
           </label>
-          <input type="submit" value="Submit" className='submit-review-button' />
-          <input type='hidden' name='review' id='review' value='dummy' />
-          <input type='hidden' name='rating' id='rating' value='1' />
+          <div>
+            <input type="submit" value="Submit" className='submit-review-button' />
+            <input type='hidden' name='review' id='review' value='dummy' />
+            <input type='hidden' name='rating' id='rating' value='1' />
+          </div>
         </form>
       </div>
     )

@@ -2,7 +2,7 @@ form {
   display: inline-block;
 }
 
-.review-submit-button {
+.submit-review-button {
   margin: 5px;
   padding: 1%;
   font-size: 15px;
@@ -26,11 +26,17 @@ textarea {
   }
 
   #review {
-    margin: 100px;
     display: block;
   }
 
-  .review-submit-button {
+  .review-label {
+    text-align: left;
+  }
+
+  .submit-review-button {
     padding: 10px;
+    width: 15%;
+    text-align: center;
+    margin-left: 50px;
   }
 }

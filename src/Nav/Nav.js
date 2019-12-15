@@ -51,7 +51,7 @@ class Nav extends React.Component {
             </Link>
             {' '}
             <Link to={'/bookshelf'} className='text-link'>
-              My Bookshelf <span className='keep-white'>|</span>
+              My Bookshelf
             </Link>
             {' '}
             {TokenService.hasAuthToken()

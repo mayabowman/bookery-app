@@ -23,6 +23,7 @@ class Bookshelf extends React.Component {
 
   handleRemoveBook = (id) => {
     console.log("function called in Bookshelf handleRemoveBook")
+    console.log('user_id', `${config.USER_ID}`)
     debugger
     BookshelfApiService.deleteBookshelfItem(id)
     let array = [...this.state.bookshelf]

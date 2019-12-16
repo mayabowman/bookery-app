@@ -23,8 +23,10 @@ class Bookshelf extends React.Component {
 
   handleRemoveBook = (id) => {
     console.log("function called in Bookshelf handleRemoveBook")
+    debugger
     BookshelfApiService.deleteBookshelfItem(id)
     let array = [...this.state.bookshelf]
+    console.log('bookshelf array', array)
     if (array.find(bookshelfItem => bookshelfItem.id === id)) {
       array = array.filter(bookshelfItem => bookshelfItem.id !== id)
       this.setState({ bookshelf: array })
@@ -57,15 +59,14 @@ class Bookshelf extends React.Component {
 
 
   render() {
-    console.log('bookshelf', this.state.bookshelf)
     const allBooksIds = this.state.bookshelf.map(item => {
       return item.book_id
     })
     const uniqueBookIds = Array.from(new Set(allBooksIds))
     const uniqueBooks = uniqueBookIds.map(item => {
-      const uniqueBook = this.state.bookshelf.find(x => {
-        return x.book_id === item
-      })
+    const uniqueBook = this.state.bookshelf.find(x => {
+      return x.book_id === item
+    })
       return uniqueBook
     })
 

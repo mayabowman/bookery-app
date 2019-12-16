@@ -39,7 +39,8 @@ class ReviewForm extends React.Component {
     const reviews = this.bookshelf.map((bookshelfItem, i) => {
       return (
         <div key={i} className='displayed-review'>
-          {bookshelfItem.review}
+          <div>{bookshelfItem.review}</div>
+          -{this.bookshelfItem.reviewer.first_name}
         </div>
       )
     })
@@ -49,7 +50,14 @@ class ReviewForm extends React.Component {
           <h2>Add Review</h2>
           <div>
             <h3>Here's what people are saying about {this.bookshelfItem.books.title}...</h3>
-            {reviews} -{this.bookshelfItem.reviewer.first_name}
+            <h3>Author: {this.bookshelfItem.books.author}</h3>
+            <div>
+              <img
+                src={this.bookshelfItem.books.graphic}
+                alt='book cover'
+              />
+            </div>
+            {reviews}
           </div>
           <label htmlFor='review' className='review-label'>
             What did you think?

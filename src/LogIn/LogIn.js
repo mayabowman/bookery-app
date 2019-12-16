@@ -28,11 +28,11 @@ class LogIn extends React.Component {
       password: password.value
     })
       .then(res => {
-
         email.value = ''
         password.value = ''
         TokenService.saveAuthToken(res.authToken)
         TokenService.saveUserId(res.userId)
+        console.log('userId', res.userId)
         this.handleLoginSuccess()
       })
       .catch(res => {

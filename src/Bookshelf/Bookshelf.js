@@ -3,6 +3,7 @@ import React from 'react'
 import config from '../config'
 import { Link } from 'react-router-dom'
 import BookshelfApiService from '../services/bookshelf-api-service'
+import TokenService from '../services/token-service'
 import './Bookshelf.css'
 
 class Bookshelf extends React.Component {
@@ -23,12 +24,13 @@ class Bookshelf extends React.Component {
 
   handleRemoveBook = (id) => {
     console.log("function called in Bookshelf handleRemoveBook")
-    console.log('user_id', `${config.USER_ID}`)
     debugger
+    let userId = TokenService.getUserId()
+    console.log('userId', userId)
     BookshelfApiService.deleteBookshelfItem(id)
     let array = [...this.state.bookshelf]
     console.log('bookshelf array', array)
-    if (array.find(bookshelfItem => bookshelfItem.id === id)) {
+    if (array.find(bookshelfItem => bookshelfItem.id === id && bookshelfItem.user_id === userId)) {
       array = array.filter(bookshelfItem => bookshelfItem.id !== id)
       this.setState({ bookshelf: array })
     }

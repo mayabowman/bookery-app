@@ -82,11 +82,9 @@ class Bookshelf extends React.Component {
     debugger
     let userId = TokenService.getUserId()
     function filterByUserId(item) {
-      if (item.user_id !== userId) {
-        return item
-      }
+      return item.user_id !== userId
     }
-
+    console.log('bookshelf',this.state.bookshelf)
     const userBooks = this.state.bookshelf.filter(filterByUserId)
 
     const booksToDisplay = userBooks.map((bookshelfItem, i) => {

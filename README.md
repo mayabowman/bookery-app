@@ -1,3 +1,6 @@
+To clone, run git clone https://github.com/mayabowman/bookery-app.git
+Run `npm install`
+
 To view in browser, use `npm start`
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

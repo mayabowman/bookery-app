@@ -24,8 +24,6 @@ class Bookshelf extends React.Component {
   // }
 
   handleRemoveBook = (id) => {
-    debugger
-
     console.log("function called in Bookshelf handleRemoveBook")
     let userId = TokenService.getUserId()
     console.log('userId', userId)
@@ -81,7 +79,6 @@ class Bookshelf extends React.Component {
       return uniqueBook
     })
 
-    debugger
     const booksToDisplay = uniqueBooks.map((bookshelfItem, i) => {
       return (
         <div key={i} className='displayed-books'>

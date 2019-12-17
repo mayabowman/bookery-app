@@ -25,12 +25,10 @@ class Bookshelf extends React.Component {
 
   handleRemoveBook = (id) => {
     console.log("function called in Bookshelf handleRemoveBook")
-    let userId = TokenService.getUserId()
-    console.log('userId', userId)
+    // let userId = TokenService.getUserId()
     BookshelfApiService.deleteBookshelfItem(id)
     // BookshelfApiService.deleteBookshelfItem(id, userId)
     let array = [...this.state.bookshelf]
-    console.log('bookshelf array', array)
     let updatedBookshelf = array.filter(bookshelfItem => {
       return bookshelfItem.id !== id
     })
@@ -67,19 +65,31 @@ class Bookshelf extends React.Component {
 
 
   render() {
-    const allBooksIds = this.state.bookshelf.map(item => {
-      return item.book_id
-    })
-    const uniqueBookIds = Array.from(new Set(allBooksIds))
-    const uniqueBooks = uniqueBookIds.map(item => {
-      const uniqueBook = this.state.bookshelf.find(x => {
-        return x.book_id === item
-        // return x.book_id === item && x.user_id === TokenService.getUserId()
-      })
-      return uniqueBook
-    })
+    // const allBooksIds = this.state.bookshelf.map(item => {
+    //   return item.book_id
+    // })
+    // console.log('allBooksIds', allBooksIds)
+    // const uniqueBookIds = Array.from(new Set(allBooksIds))
+    // console.log('uniqueBooksIds', uniqueBookIds)
+    // const uniqueBooks = uniqueBookIds.map(item => {
+    //   const uniqueBook = this.state.bookshelf.find(x => {
+    //     return x.book_id === item
+    //     // return x.book_id === item && x.user_id === userId
+    //     // return x.user_id === userId
+    //   })
+    //   return uniqueBook
+    // })
+    debugger
+    let userId = TokenService.getUserId()
+    function filterByUserId(item) {
+      if (item.user_id !== userId) {
+        return item
+      }
+    }
 
-    const booksToDisplay = uniqueBooks.map((bookshelfItem, i) => {
+    const userBooks = this.state.bookshelf.filter(filterByUserId)
+
+    const booksToDisplay = userBooks.map((bookshelfItem, i) => {
       return (
         <div key={i} className='displayed-books'>
           <h2>{bookshelfItem.books.title}</h2>

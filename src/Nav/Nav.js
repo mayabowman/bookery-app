@@ -27,7 +27,7 @@ class Nav extends React.Component {
         to='/signup'
         className='text-link'
       >
-        <span className='keep-white'>|</span> Sign Up
+        <span className='keep-white'>|</span> Log In
       </Link>
     )
   }

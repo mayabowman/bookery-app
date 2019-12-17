@@ -12,6 +12,7 @@ class Bookshelf extends React.Component {
 
     this.state = {
       bookshelf: [],
+      currentUserId: TokenService.getUserId()
       // ratings: {}
     }
   }
@@ -23,18 +24,24 @@ class Bookshelf extends React.Component {
   // }
 
   handleRemoveBook = (id) => {
-    console.log("function called in Bookshelf handleRemoveBook")
     debugger
+
+    console.log("function called in Bookshelf handleRemoveBook")
     let userId = TokenService.getUserId()
     console.log('userId', userId)
     BookshelfApiService.deleteBookshelfItem(id)
+    // BookshelfApiService.deleteBookshelfItem(id, userId)
     let array = [...this.state.bookshelf]
     console.log('bookshelf array', array)
-    if (array.find(bookshelfItem => bookshelfItem.id === id && bookshelfItem.user_id === userId)) {
-      array = array.filter(bookshelfItem => bookshelfItem.id !== id)
-      this.setState({ bookshelf: array })
-    }
-    console.log('array', array)
+    let updatedBookshelf = array.filter(bookshelfItem => {
+      return bookshelfItem.id !== id
+    })
+    this.setState({ bookshelf: updatedBookshelf })
+    // if (array.find(bookshelfItem => bookshelfItem.id === id)) {
+    //   array = array.filter(bookshelfItem => bookshelfItem.id !== id)
+    //   this.setState({ bookshelf: array })
+    // }
+    console.log('updatedBookshelf', updatedBookshelf)
 
   }
 
@@ -67,12 +74,14 @@ class Bookshelf extends React.Component {
     })
     const uniqueBookIds = Array.from(new Set(allBooksIds))
     const uniqueBooks = uniqueBookIds.map(item => {
-    const uniqueBook = this.state.bookshelf.find(x => {
-      return x.book_id === item
-    })
+      const uniqueBook = this.state.bookshelf.find(x => {
+        return x.book_id === item
+        // return x.book_id === item && x.user_id === TokenService.getUserId()
+      })
       return uniqueBook
     })
 
+    debugger
     const booksToDisplay = uniqueBooks.map((bookshelfItem, i) => {
       return (
         <div key={i} className='displayed-books'>

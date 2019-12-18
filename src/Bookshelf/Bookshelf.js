@@ -68,9 +68,9 @@ class Bookshelf extends React.Component {
     // const allBooksIds = this.state.bookshelf.map(item => {
     //   return item.book_id
     // })
-    // console.log('allBooksIds', allBooksIds)
+    // let userId = TokenService.getUserId()
+    // console.log('userId', userId)
     // const uniqueBookIds = Array.from(new Set(allBooksIds))
-    // console.log('uniqueBooksIds', uniqueBookIds)
     // const uniqueBooks = uniqueBookIds.map(item => {
     //   const uniqueBook = this.state.bookshelf.find(x => {
     //     return x.book_id === item
@@ -79,14 +79,14 @@ class Bookshelf extends React.Component {
     //   })
     //   return uniqueBook
     // })
-    debugger
+    // debugger
     let userId = TokenService.getUserId()
     function filterByUserId(item) {
-      return item.user_id !== userId
+      return item.user_id === Number(userId)
     }
     console.log('bookshelf',this.state.bookshelf)
     const userBooks = this.state.bookshelf.filter(filterByUserId)
-
+    // console.log('uniqueBooks', uniqueBooks)
     const booksToDisplay = userBooks.map((bookshelfItem, i) => {
       return (
         <div key={i} className='displayed-books'>

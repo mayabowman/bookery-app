@@ -6,14 +6,16 @@ class ReviewForm extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = {
-      textValue: ''
-    }
     this.bookshelfItem = this.props.location.state.bookshelfItem
     this.bookshelf = this.props.location.state.bookshelf
     this.bookshelf = this.bookshelf.filter(item => {
       return item.book_id === this.bookshelfItem.book_id
     })
+
+    this.state = {
+      textValue: '',
+      bookshelf: this.bookshelf
+    }
 
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -26,9 +28,17 @@ class ReviewForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault()
     const text = this.state.textValue
+    debugger
     BookshelfApiService.updateBookshelfItem(this.bookshelfItem.id, text)
       .then(() => {
-        this.setState({ textValue: ''})
+        const updatedBookshelf = this.state.bookshelf.map(item => {
+          if (item.id === this.bookshelfItem.id) {
+            item.review = text
+          }
+          return item
+        })
+        debugger
+        this.setState({ bookshelf: updatedBookshelf })
       })
       .catch(this.context.setError)
   }
@@ -39,8 +49,8 @@ class ReviewForm extends React.Component {
     const reviews = this.bookshelf.map((bookshelfItem, i) => {
       return (
         <div key={i} className='displayed-review'>
-          <div>{bookshelfItem.review}</div>
-          -{this.bookshelfItem.reviewer.first_name}
+          <div>&raquo;{bookshelfItem.review}&raquo;</div>
+          &mdash;{bookshelfItem.reviewer.first_name}
         </div>
       )
     })

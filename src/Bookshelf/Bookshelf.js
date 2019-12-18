@@ -25,9 +25,7 @@ class Bookshelf extends React.Component {
 
   handleRemoveBook = (id) => {
     console.log("function called in Bookshelf handleRemoveBook")
-    // let userId = TokenService.getUserId()
     BookshelfApiService.deleteBookshelfItem(id)
-    // BookshelfApiService.deleteBookshelfItem(id, userId)
     let array = [...this.state.bookshelf]
     let updatedBookshelf = array.filter(bookshelfItem => {
       return bookshelfItem.id !== id
@@ -42,6 +40,7 @@ class Bookshelf extends React.Component {
   }
 
   componentDidMount() {
+    debugger
     fetch(`${config.API_ENDPOINT}/bookshelf`)
       .then((bookshelfRes) => {
         if (!bookshelfRes.ok) {

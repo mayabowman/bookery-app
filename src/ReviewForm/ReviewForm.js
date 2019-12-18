@@ -49,7 +49,7 @@ class ReviewForm extends React.Component {
     const reviews = this.bookshelf.map((bookshelfItem, i) => {
       return (
         <div key={i} className='displayed-review'>
-          <div>&raquo;{bookshelfItem.review}&raquo;</div>
+          <div>{bookshelfItem.review}</div>
           &mdash;{bookshelfItem.reviewer.first_name}
         </div>
       )

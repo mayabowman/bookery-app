@@ -37,7 +37,7 @@ class ReviewForm extends React.Component {
           }
           return item
         })
-        debugger
+        // debugger
         this.setState({ bookshelf: updatedBookshelf })
       })
       .catch(this.context.setError)

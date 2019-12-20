@@ -30,9 +30,7 @@ const BookshelfApiService = {
         'authorization': `bearer ${TokenService.getAuthToken()}`
       },
       body: JSON.stringify({
-        // book_id: book_id,
         review: review,
-        // rating: rating
       }),
     })
       .then(res =>
@@ -57,22 +55,6 @@ const BookshelfApiService = {
           : res
       )
   },
-
-  // deleteBookshelfItem(bookshelfItemId, userId) {
-  //   console.log(bookshelfItemId)
-  //   return fetch(`${config.API_ENDPOINT}/bookshelf/${bookshelfItemId}/${userId}`, {
-  //     method: 'DELETE',
-  //     headers: {
-  //       'content-type': 'application/json',
-  //       'authorization': `bearer ${TokenService.getAuthToken()}`,
-  //     },
-  //   })
-  //     .then(res =>
-  //       (!res.ok)
-  //         ? res.json().then(e => Promise.reject(e))
-  //         : res
-  //     )
-  // },
 }
 
 export default BookshelfApiService

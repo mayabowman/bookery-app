@@ -48,7 +48,7 @@ class ReviewForm extends React.Component {
   render() {
     const reviews = this.bookshelf.map((bookshelfItem, i) => {
       return (
-        <div key={i} className='displayed-review'>
+        <div key={i} className={'displayed-review ' + (this.bookshelfItem.review === 'dummy text' ? 'hidden' : 'show')} >
           <div>{bookshelfItem.review}</div>
           &mdash;{bookshelfItem.reviewer.first_name}
         </div>

@@ -2,6 +2,14 @@ form {
   display: inline-block;
 }
 
+.hidden {
+  display: none;
+}
+
+.review-form-div {
+  text-align: center;
+}
+
 .submit-review-button {
   margin: 5px;
   padding: 1%;
@@ -11,10 +19,6 @@ form {
 
 textarea {
   border: 1px solid #696969;
-}
-
-.review-form-div {
-  text-align: center;
 }
 
 @media (min-width: 768px) {

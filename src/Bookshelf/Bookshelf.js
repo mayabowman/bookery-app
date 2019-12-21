@@ -40,7 +40,6 @@ class Bookshelf extends React.Component {
   }
 
   componentDidMount() {
-    debugger
     fetch(`${config.API_ENDPOINT}/bookshelf`)
       .then((bookshelfRes) => {
         if (!bookshelfRes.ok) {

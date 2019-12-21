@@ -24,7 +24,7 @@ class Nav extends React.Component {
   renderLoginLink() {
     return (
       <Link
-        to='/signup'
+        to='/login'
         className='text-link'
       >
         <span className='keep-white'>|</span> Log In

@@ -2,6 +2,10 @@ form {
   display: inline-block;
 }
 
+.add-review {
+  width: 100%;
+}
+
 .hidden {
   display: none;
 }
@@ -10,15 +14,22 @@ form {
   text-align: center;
 }
 
+.review-label {
+  text-align: left;
+  width: 100%;
+}
+
 .submit-review-button {
-  margin: 5px;
-  padding: 1%;
+  margin: 27px;
+  padding: 2%;
   font-size: 15px;
-  cursor: pointer;
+  width: 18%;
+  text-align: center;
 }
 
 textarea {
   border: 1px solid #696969;
+  width: 100%;
 }
 
 @media (min-width: 768px) {

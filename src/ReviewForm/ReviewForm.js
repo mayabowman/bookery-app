@@ -28,7 +28,6 @@ class ReviewForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault()
     const text = this.state.textValue
-    debugger
     BookshelfApiService.updateBookshelfItem(this.bookshelfItem.id, text)
       .then(() => {
         const updatedBookshelf = this.state.bookshelf.map(item => {
@@ -37,7 +36,6 @@ class ReviewForm extends React.Component {
           }
           return item
         })
-        // debugger
         this.setState({ bookshelf: updatedBookshelf })
       })
       .catch(this.context.setError)
@@ -56,7 +54,7 @@ class ReviewForm extends React.Component {
     })
     return (
       <div className='review-form-div'>
-        <form className='addReview' onSubmit={this.handleSubmit}>
+        <form className='add-review' onSubmit={this.handleSubmit}>
           <h2>Add Review</h2>
           <div>
             <h3>Here's what people are saying about {this.bookshelfItem.books.title}...</h3>
@@ -76,7 +74,7 @@ class ReviewForm extends React.Component {
               aria-label='Type your review...'
               id='review'
               name='review'
-              cols='80'
+              // cols='80'
               rows='10'
               value={this.state.textValue} onChange={this.handleChange}
               placeholder='Type your review...'

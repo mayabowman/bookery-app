@@ -37,6 +37,7 @@ class LogIn extends React.Component {
       })
       .catch(res => {
         this.setState({ error: res.error })
+        console.log('response error', res.error)
       })
   }
 

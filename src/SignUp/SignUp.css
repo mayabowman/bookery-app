@@ -29,6 +29,7 @@ label {
     display: block;
     font-size: 1em;
     margin: 50px;
+    margin-bottom: 0px;
     padding: 20px;
     text-align: left;
     width: 80%;
@@ -44,6 +45,10 @@ label {
   }
 
   .signup-form {
-    margin: 7%;
+    margin: 1%;
   }
+
+  /* .signup-field {
+    padding-top: 0;
+  } */
 }

@@ -15,11 +15,12 @@ class SignUp extends React.Component {
 
   handleRegistrationSuccess = () => {
     const { location, history } = this.props
-    const destination = (location.state || {}).from || '/browsebooks'
+    const destination = (location.state || {}).from || '/login'
     history.push(destination)
   }
 
   handleSubmit = e => {
+    debugger
     e.preventDefault()
     const { first_name, last_name, email, password } = e.target
 
@@ -49,7 +50,7 @@ class SignUp extends React.Component {
     return (
       <div className='signup-form'>
         <form className='signup-form' onSubmit={this.handleSubmit}>
-          <div>
+          <div className='signup-field'>
             <label htmlFor='first_name'>First Name</label>
             <input
               type='text'
@@ -58,7 +59,7 @@ class SignUp extends React.Component {
               placeholder='First Name'
             />
           </div>
-          <div>
+          <div className='signup-field'>
             <label htmlFor='last_name'>Last Name</label>
             <input
               type='text'
@@ -67,7 +68,7 @@ class SignUp extends React.Component {
               placeholder='Last Name'
             />
           </div>
-          <div>
+          <div className='signup-field'>
             <label htmlFor='email'>Email Address</label>
              <input
               type='text'
@@ -76,7 +77,7 @@ class SignUp extends React.Component {
               placeholder='Email'
             />
           </div>
-          <div>
+          <div className='signup-field'>
             <label htmlFor='password'>Password</label>
             <input
               type='password'

@@ -20,21 +20,22 @@ class SignUp extends React.Component {
   }
 
   handleSubmit = e => {
-    debugger
     e.preventDefault()
     const { first_name, last_name, email, password } = e.target
 
     console.log('registration form submitted')
     console.log({ first_name, last_name, email, password })
-
     this.setState({ error: null })
+    // debugger
+
     AuthApiService.postUser({
       first_name: first_name.value,
       last_name: last_name.value,
       user_email: email.value,
       password: password.value
     })
-      .then(user => {
+      .then(res => {
+        console.log('I made it here', res)
         first_name.value = ''
         last_name.value = ''
         email.value = ''
@@ -43,6 +44,7 @@ class SignUp extends React.Component {
       })
       .catch(res => {
         this.setState({ error: res.error })
+        console.log('error', res.error)
       })
   }
 

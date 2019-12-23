@@ -20,6 +20,10 @@ form {
   margin-top: 15px;
 }
 
+.error-message {
+  color: red;
+}
+
 @media (min-width: 768px) {
   header {
     position: fixed;

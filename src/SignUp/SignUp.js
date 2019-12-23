@@ -26,7 +26,6 @@ class SignUp extends React.Component {
     console.log('registration form submitted')
     console.log({ first_name, last_name, email, password })
     this.setState({ error: null })
-    // debugger
 
     AuthApiService.postUser({
       first_name: first_name.value,

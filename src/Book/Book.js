@@ -2,7 +2,21 @@ import React from 'react'
 import './Book.css'
 
 class Book extends React.Component {
+  state = {
+    buttonText: "Add to Bookshelf",
+    disabledButton: false
+  }
+
+  changeButtonText(text) {
+    this.setState({ buttonText: text })
+  }
+
+  disableButton() {
+    this.setState({ disabledButton: true })
+  }
+
   render() {
+    const { buttonText } = this.state
     return (
       <div className='booklist-item'>
         <h2>{this.props.book.title}</h2>
@@ -14,11 +28,16 @@ class Book extends React.Component {
           />
         </div>
         <button
+          disabled= {this.state.disabledButton}
           className='add-book-button'
           id={this.props.book.id}
-          onClick={() => this.props.handleAddToBookshelf(this.props.book.id)}
+          onClick={
+            () => {this.props.handleAddToBookshelf(this.props.book.id);
+                   this.changeButtonText("Added!");
+                   this.disableButton()}
+          }
         >
-          Add to Bookshelf
+          {buttonText}
         </button>
       </div>
     )

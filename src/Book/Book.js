@@ -28,7 +28,7 @@ class Book extends React.Component {
           />
         </div>
         <button
-          disabled= {this.state.disabledButton}
+          disabled={this.state.disabledButton}
           className='add-book-button'
           id={this.props.book.id}
           onClick={

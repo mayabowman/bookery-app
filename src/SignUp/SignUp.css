@@ -28,32 +28,26 @@ label {
     padding: 10%;
   }
 
-  input {
+  .signup__input {
     border: 1px solid #696969;
     display: block;
     font-size: 1em;
-    margin: 50px;
-    margin-bottom: 0px;
-    margin-top: 0px;
+    margin: 0px 0px 25px 0px;
     padding: 20px;
     text-align: left;
-    width: 80%;
+    width: 100%;
   }
 
-  label {
+  .signup__label {
     text-align: right;
     display: block;
     clear: both;
     float: left;
-    margin: 50px;
+    margin: 0px;
     margin-bottom: 20px;
   }
 
   .signup-form {
     margin: 1%;
   }
-
-  /* .signup-field {
-    padding-top: 0;
-  } */
 }

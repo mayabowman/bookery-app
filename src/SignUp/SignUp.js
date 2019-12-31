@@ -52,8 +52,12 @@ class SignUp extends React.Component {
       <div className='signup-form'>
         <form className='signup-form' onSubmit={this.handleSubmit}>
           <div className='signup-field'>
-            <label htmlFor='first_name'>First Name</label>
+            <label
+              htmlFor='first_name'
+              className='signup__label'
+            >First Name</label>
             <input
+              className='signup__input'
               type='text'
               name='first_name'
               id='first_name'
@@ -61,8 +65,12 @@ class SignUp extends React.Component {
             />
           </div>
           <div className='signup-field'>
-            <label htmlFor='last_name'>Last Name</label>
+            <label
+              htmlFor='last_name'
+              className='signup__label'
+            >Last Name</label>
             <input
+              className='signup__input'
               type='text'
               name='last_name'
               id='last_name'
@@ -70,8 +78,12 @@ class SignUp extends React.Component {
             />
           </div>
           <div className='signup-field'>
-            <label htmlFor='email'>Email Address</label>
+            <label
+              htmlFor='email'
+              className='signup__label'
+            >Email Address</label>
              <input
+              className='signup__input'
               type='text'
               name='email'
               id='email'
@@ -79,8 +91,12 @@ class SignUp extends React.Component {
             />
           </div>
           <div className='signup-field'>
-            <label htmlFor='password'>Password</label>
+            <label
+              htmlFor='password'
+              className='signup__label'
+            >Password</label>
             <input
+              className='signup__input'
               type='password'
               name='password'
               id='password'

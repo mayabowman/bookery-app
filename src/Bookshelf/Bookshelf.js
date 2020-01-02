@@ -11,7 +11,7 @@ class Bookshelf extends React.Component {
     super(props)
 
     this.state = {
-      bookshelf: [],
+      bookshelf: this.props.bookshelf,
       currentUserId: TokenService.getUserId()
       // ratings: {}
     }

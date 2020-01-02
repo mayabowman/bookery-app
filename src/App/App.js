@@ -6,9 +6,9 @@ import LogIn from '../LogIn/LogIn'
 import BrowseBooks from '../BrowseBooks/BrowseBooks'
 import Bookshelf from '../Bookshelf/Bookshelf'
 import ReviewForm from '../ReviewForm/ReviewForm'
-import Book from '../Book/Book'
 import BookshelfApiService from '../services/bookshelf-api-service'
 import BookshelfContext from '../contexts/BookshelfContext'
+import AppContext from '../contexts/AppContext'
 import config from '../config'
 import './App.css'
 import Nav from '../Nav/Nav'
@@ -27,6 +27,7 @@ class App extends React.Component {
   }
 
   static contextType = BookshelfContext
+  static contextType = AppContext
 
   drawerToggleClickHandler = () => {
     this.setState((prevState) => {
@@ -57,24 +58,48 @@ class App extends React.Component {
           error: 'Sorry, could not get books at this time.'
         })
       })
+
+    fetch(`${config.API_ENDPOINT}/bookshelf`)
+      .then((bookshelfRes) => {
+        if (!bookshelfRes.ok) {
+          throw new Error(bookshelfRes.statusText)
+        }
+        return bookshelfRes.json()
+      })
+      .then(data => {
+        this.setState({
+          bookshelf: data,
+          error: null
+        })
+      })
+      .catch(err => {
+        this.setState({
+          error: 'Sorry, could not get books at this time.'
+        })
+      })
   }
 
   handleAddToBookshelf = (id) => {
     console.log('id', id)
     console.log('function called in app handleAddToBookshelf')
-    BookshelfApiService.postBookshelfItem(id, 'dummy text', '3')
     this.setState({
       bookshelf: !this.state.bookshelf.includes(id)
                   ? [...this.state.bookshelf, id]
                   : this.state.bookshelf
     })
+    if (!this.state.bookshelf.includes(id)) {
+      BookshelfApiService.postBookshelfItem(id, 'dummy text', '3')
+    }
   }
 
   render() {
+    const contextValue = {
+      handleAddToBookshelf: this.handleAddToBookshelf,
+      books: this.state.books,
+      bookshelf: this.state.bookshelf
+    }
+
     let { books } = this.state
-    let updatedBooks = Object.keys(books).map((book, i) => (
-      <Book key={i} id={i} book={books[book]} handleAddToBookshelf={this.handleAddToBookshelf}/>
-    ))
     let backdrop
 
     if (this.state.sideDrawerOpen) {
@@ -82,53 +107,58 @@ class App extends React.Component {
     }
 
     return (
-      <main className="App" style={{height: '100%' }}>
-        <Nav drawerClickHandler={this.drawerToggleClickHandler}/>
-        <SideDrawer show={this.state.sideDrawerOpen}/>
-        {backdrop}
-        <Switch>
-          <>
-            <div className='content' aria-live='polite'>
-              <Route
-                exact
-                path='/'
-                component={LandingPage}
-              />
-              <Route
-                exact
-                path='/signup'
-                component={SignUp}
-              />
-              <Route
-                exact
-                path='/login'
-                component={LogIn}
-              />
-              <Route
-                path='/browsebooks'
-                render={() => (
-                  <BrowseBooks books={updatedBooks} />
-                )}
-              />
-              <Route
-                path='/bookshelf'
-                render={() => (
-                  <Bookshelf
-                    books={books}
-                    bookshelf={this.state.bookshelf}
-                    handleRemoveBook={this.handleRemoveBook}
-                  />
-                )}
-              />
-              <Route
-                exact
-                path='/reviewform'
-                component={ReviewForm}
-              />
-            </div>
-          </>
-        </Switch>
-      </main>
+      <AppContext.Provider value={contextValue}>
+        <main className="App" style={{height: '100%' }}>
+          <Nav drawerClickHandler={this.drawerToggleClickHandler}/>
+          <SideDrawer show={this.state.sideDrawerOpen}/>
+          {backdrop}
+          <Switch>
+            <>
+              <div className='content' aria-live='polite'>
+                <Route
+                  exact
+                  path='/'
+                  component={LandingPage}
+                />
+                <Route
+                  exact
+                  path='/signup'
+                  component={SignUp}
+                />
+                <Route
+                  exact
+                  path='/login'
+                  component={LogIn}
+                />
+                <Route
+                  path='/browsebooks'
+                  render={() => (
+                    <BrowseBooks
+                      books={this.state.books}
+                      bookshelf={this.state.bookshelf}
+                    />
+                  )}
+                />
+                <Route
+                  path='/bookshelf'
+                  render={() => (
+                    <Bookshelf
+                      books={books}
+                      bookshelf={this.state.bookshelf}
+                      handleRemoveBook={this.handleRemoveBook}
+                    />
+                  )}
+                />
+                <Route
+                  exact
+                  path='/reviewform'
+                  component={ReviewForm}
+                />
+              </div>
+            </>
+          </Switch>
+        </main>
+      </AppContext.Provider>
     )
   }
 }

@@ -7,7 +7,7 @@ import BrowseBooks from '../BrowseBooks/BrowseBooks'
 import Bookshelf from '../Bookshelf/Bookshelf'
 import ReviewForm from '../ReviewForm/ReviewForm'
 import BookshelfApiService from '../services/bookshelf-api-service'
-import BookshelfContext from '../contexts/BookshelfContext'
+// import BookshelfContext from '../contexts/BookshelfContext'
 import AppContext from '../contexts/AppContext'
 import config from '../config'
 import './App.css'
@@ -26,7 +26,7 @@ class App extends React.Component {
     }
   }
 
-  static contextType = BookshelfContext
+  // static contextType = BookshelfContext
   static contextType = AppContext
 
   drawerToggleClickHandler = () => {
@@ -80,8 +80,9 @@ class App extends React.Component {
   }
 
   handleAddToBookshelf = (id) => {
-    console.log('id', id)
+    // console.log('book', book)
     console.log('function called in app handleAddToBookshelf')
+
     this.setState({
       bookshelf: !this.state.bookshelf.includes(id)
                   ? [...this.state.bookshelf, id]

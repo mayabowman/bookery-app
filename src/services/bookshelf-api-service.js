@@ -13,7 +13,7 @@ const BookshelfApiService = {
         book_id: book_id,
         review: review,
         rating: rating
-      }),
+      })
     })
       .then(res =>
         (!res.ok)

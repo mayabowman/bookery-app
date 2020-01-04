@@ -58,25 +58,6 @@ class App extends React.Component {
           error: 'Sorry, could not get books at this time.'
         })
       })
-
-    fetch(`${config.API_ENDPOINT}/bookshelf`)
-      .then((bookshelfRes) => {
-        if (!bookshelfRes.ok) {
-          throw new Error(bookshelfRes.statusText)
-        }
-        return bookshelfRes.json()
-      })
-      .then(data => {
-        this.setState({
-          bookshelf: data,
-          error: null
-        })
-      })
-      .catch(err => {
-        this.setState({
-          error: 'Sorry, could not get books at this time.'
-        })
-      })
   }
 
   handleAddToBookshelf = (id) => {
@@ -90,7 +71,34 @@ class App extends React.Component {
     })
     if (!this.state.bookshelf.includes(id)) {
       BookshelfApiService.postBookshelfItem(id, 'dummy text', '3')
+        .then((data) =>{
+          console.log('data', data)
+          this.setState({
+            bookshelf: [...this.state.bookshelf, data.book_id]
+          })
+        })
+        .catch(err => {
+          console.log('error', err)
+        })
     }
+    // fetch(`${config.API_ENDPOINT}/bookshelf`)
+    //     .then((bookshelfRes) => {
+    //       if (!bookshelfRes.ok) {
+    //         throw new Error(bookshelfRes.statusText)
+    //       }
+    //       return bookshelfRes.json()
+    //     })
+    //     .then(data => {
+    //       this.setState({
+    //         bookshelf: data,
+    //         error: null
+    //       })
+    //     })
+    //     .catch(err => {
+    //       this.setState({
+    //         error: 'Sorry, could not get books at this time.'
+    //       })
+    //     })
   }
 
   render() {

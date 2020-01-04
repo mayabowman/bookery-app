@@ -2,9 +2,12 @@ import React from 'react'
 import './Book.css'
 
 class Book extends React.Component {
-  state = {
-    buttonText: "Add to Bookshelf",
-    disabledButton: false
+  constructor() {
+    super()
+    this.state = {
+      buttonText: "Add to Bookshelf",
+      disabledButton: false
+    }
   }
 
   changeButtonText(text) {

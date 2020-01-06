@@ -19,7 +19,6 @@ class Book extends React.Component {
   }
 
   render() {
-    console.log('book', this.props.book)
     const { buttonText } = this.state
     return (
       <div className='booklist-item'>
@@ -38,7 +37,6 @@ class Book extends React.Component {
           disabled={this.state.disabledButton}
           className='add-book-button'
           id={this.props.book.id}
-          // id={this.props.book}
           onClick={
             () => {this.props.handleAddToBookshelf(this.props.book.id);
                    this.changeButtonText("Added!");

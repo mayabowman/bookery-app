@@ -7,7 +7,6 @@ import BrowseBooks from '../BrowseBooks/BrowseBooks'
 import Bookshelf from '../Bookshelf/Bookshelf'
 import ReviewForm from '../ReviewForm/ReviewForm'
 import BookshelfApiService from '../services/bookshelf-api-service'
-// import BookshelfContext from '../contexts/BookshelfContext'
 import AppContext from '../contexts/AppContext'
 import config from '../config'
 import './App.css'
@@ -26,7 +25,6 @@ class App extends React.Component {
     }
   }
 
-  // static contextType = BookshelfContext
   static contextType = AppContext
 
   drawerToggleClickHandler = () => {
@@ -61,9 +59,6 @@ class App extends React.Component {
   }
 
   handleAddToBookshelf = (id) => {
-    // console.log('book', book)
-    console.log('function called in app handleAddToBookshelf')
-
     this.setState({
       bookshelf: !this.state.bookshelf.includes(id)
                   ? [...this.state.bookshelf, id]
@@ -81,24 +76,6 @@ class App extends React.Component {
           console.log('error', err)
         })
     }
-    // fetch(`${config.API_ENDPOINT}/bookshelf`)
-    //     .then((bookshelfRes) => {
-    //       if (!bookshelfRes.ok) {
-    //         throw new Error(bookshelfRes.statusText)
-    //       }
-    //       return bookshelfRes.json()
-    //     })
-    //     .then(data => {
-    //       this.setState({
-    //         bookshelf: data,
-    //         error: null
-    //       })
-    //     })
-    //     .catch(err => {
-    //       this.setState({
-    //         error: 'Sorry, could not get books at this time.'
-    //       })
-    //     })
   }
 
   render() {

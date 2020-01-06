@@ -4,6 +4,7 @@ import TokenService from '../services/token-service'
 import './SideDrawer.css'
 
 class SideDrawer extends React.Component {
+
   handleLogoutClick = () => {
     TokenService.clearAuthToken()
   }
@@ -32,18 +33,23 @@ class SideDrawer extends React.Component {
   }
 
   render() {
-    let drawerClasses = 'side-drawer'
-    if (this.props.show) {
-      drawerClasses = 'side-drawer open'
+    // let drawerClasses = 'side-drawer'
+    // if (this.props.show) {
+    //   drawerClasses = 'side-drawer open'
+    // }
+    let drawerClasses
+    this.props.show ? drawerClasses = 'side-drawer open' : drawerClasses = 'side-drawer'
+    function closeDrawer() {
+      drawerClasses = 'side-drawer'
     }
 
     return (
       <nav className={drawerClasses}>
         <div className='side-drawer__navbar-nav-items'>
-          <Link to={'/browsebooks'} className='side-drawer__text-link'>
+          <Link to={'/browsebooks'} className='side-drawer__text-link' onClick={closeDrawer()}>
             Browse Books
           </Link>
-          <Link to={'/bookshelf'} className='side-drawer__text-link'>
+          <Link to={'/bookshelf'} className='side-drawer__text-link' onClick={closeDrawer()}>
             My Bookshelf
           </Link>
           {TokenService.hasAuthToken()

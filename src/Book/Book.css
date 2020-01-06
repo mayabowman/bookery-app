@@ -4,7 +4,7 @@
 
 .book-description {
   margin: 0 auto;
-  width: 40%;
+  width: 95%;
 }
 
 .booklist-item {
@@ -28,6 +28,11 @@ img {
   .add-book-button {
     margin: 5px;
     padding: 20px;
+  }
+
+  .book-description {
+    margin: 0 auto;
+    width: 40%;
   }
 
   .booklist-item {

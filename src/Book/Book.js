@@ -19,6 +19,7 @@ class Book extends React.Component {
   }
 
   render() {
+    console.log('book', this.props.book)
     const { buttonText } = this.state
     return (
       <div className='booklist-item'>
@@ -29,6 +30,9 @@ class Book extends React.Component {
             src={this.props.book.graphic}
             alt='book cover'
           />
+        </div>
+        <div className='book-description'>
+          <p>{this.props.book.book_description}</p>
         </div>
         <button
           disabled={this.state.disabledButton}

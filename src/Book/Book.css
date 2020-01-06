@@ -2,6 +2,11 @@
   margin: 5px;
 }
 
+.book-description {
+  margin: 0 auto;
+  width: 40%;
+}
+
 .booklist-item {
   border: 1px solid #696969;
   margin: 15px;

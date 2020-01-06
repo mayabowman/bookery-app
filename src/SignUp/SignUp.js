@@ -23,8 +23,6 @@ class SignUp extends React.Component {
     e.preventDefault()
     const { first_name, last_name, email, password } = e.target
 
-    console.log('registration form submitted')
-    console.log({ first_name, last_name, email, password })
     this.setState({ error: null })
 
     AuthApiService.postUser({
@@ -34,7 +32,6 @@ class SignUp extends React.Component {
       password: password.value
     })
       .then(res => {
-        console.log('I made it here', res)
         first_name.value = ''
         last_name.value = ''
         email.value = ''

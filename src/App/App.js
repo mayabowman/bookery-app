@@ -68,7 +68,6 @@ class App extends React.Component {
     if (!this.state.bookshelf.includes(id)) {
       BookshelfApiService.postBookshelfItem(id, 'dummy text', '3')
         .then((data) =>{
-          console.log('data', data)
           this.setState({
             bookshelf: [...this.state.bookshelf, data.book_id]
           })

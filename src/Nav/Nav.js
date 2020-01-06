@@ -39,7 +39,6 @@ class Nav extends React.Component {
   }
 
   render() {
-    console.log('token', TokenService.hasAuthToken())
     return (
       <header className='navbar'>
         <nav className='navbar-navigation' role='navigation'>

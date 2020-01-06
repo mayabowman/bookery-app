@@ -42,7 +42,6 @@ const BookshelfApiService = {
   },
 
   deleteBookshelfItem(bookshelfItemId) {
-    console.log(bookshelfItemId)
     return fetch(`${config.API_ENDPOINT}/bookshelf/${bookshelfItemId}`, {
       method: 'DELETE',
       headers: {

@@ -32,12 +32,10 @@ class LogIn extends React.Component {
         password.value = ''
         TokenService.saveAuthToken(res.authToken)
         TokenService.saveUserId(res.userId)
-        console.log('userId', res.userId)
         this.handleLoginSuccess()
       })
       .catch(res => {
         this.setState({ error: res.error })
-        console.log('response error', res.error)
       })
   }
 

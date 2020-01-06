@@ -23,6 +23,7 @@ class App extends React.Component {
       error: null,
       sideDrawerOpen: false,
     }
+    this.drawerToggleClickHandler = this.drawerToggleClickHandler.bind(this)
   }
 
   static contextType = AppContext
@@ -96,7 +97,10 @@ class App extends React.Component {
       <AppContext.Provider value={contextValue}>
         <main className="App" style={{height: '100%' }}>
           <Nav drawerClickHandler={this.drawerToggleClickHandler}/>
-          <SideDrawer show={this.state.sideDrawerOpen}/>
+          <SideDrawer
+            show={this.state.sideDrawerOpen}
+            toggle={this.drawerToggleClickHandler}
+          />
           {backdrop}
           <Switch>
             <>

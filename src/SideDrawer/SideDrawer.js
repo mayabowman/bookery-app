@@ -12,7 +12,10 @@ class SideDrawer extends React.Component {
   renderLogoutLink() {
     return (
       <Link
-        onClick={this.handleLogoutClick}
+        onClick={
+          () => {this.handleLogoutClick();
+                 this.props.toggle()}
+        }
         to='/'
         className='side-drawer__text-link'
       >
@@ -39,17 +42,14 @@ class SideDrawer extends React.Component {
     // }
     let drawerClasses
     this.props.show ? drawerClasses = 'side-drawer open' : drawerClasses = 'side-drawer'
-    function closeDrawer() {
-      drawerClasses = 'side-drawer'
-    }
 
     return (
       <nav className={drawerClasses}>
         <div className='side-drawer__navbar-nav-items'>
-          <Link to={'/browsebooks'} className='side-drawer__text-link' onClick={closeDrawer()}>
+          <Link to={'/browsebooks'} className='side-drawer__text-link' onClick={this.props.toggle}>
             Browse Books
           </Link>
-          <Link to={'/bookshelf'} className='side-drawer__text-link' onClick={closeDrawer()}>
+          <Link to={'/bookshelf'} className='side-drawer__text-link' onClick={this.props.toggle}>
             My Bookshelf
           </Link>
           {TokenService.hasAuthToken()

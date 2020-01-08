@@ -14,7 +14,8 @@ class ReviewForm extends React.Component {
 
     this.state = {
       textValue: '',
-      bookshelf: this.bookshelf
+      bookshelf: this.bookshelf,
+      placeholder: 'Type your review...'
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -38,7 +39,15 @@ class ReviewForm extends React.Component {
         })
         this.setState({ bookshelf: updatedBookshelf })
       })
+      .then(() => {
+        this.setState({
+          placeholder: 'Thanks for your review!' ,
+          textValue: ''
+        })
+      })
       .catch(this.context.setError)
+    event.target.review.value = ''
+
   }
 
 
@@ -77,7 +86,7 @@ class ReviewForm extends React.Component {
               // cols='80'
               rows='10'
               value={this.state.textValue} onChange={this.handleChange}
-              placeholder='Type your review...'
+              placeholder={this.state.placeholder}
             />
           </label>
           <div>

@@ -91,7 +91,15 @@ class SignUp extends React.Component {
             <label
               htmlFor='password'
               className='signup__label'
-            >Password</label>
+            >Password</label><br/>
+            {/* <div className='signup__password-req'>
+              <p>
+                *Password requirements:<br/>
+                Must be between 8 and 72 characters<br/>
+                Must not begin or end with a space<br/>
+                Must contain an uppercase, lowercase, number and special character
+              </p>
+            </div> */}
             <input
               className='signup__input'
               type='password'

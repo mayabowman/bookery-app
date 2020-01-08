@@ -50,4 +50,11 @@ label {
   .signup-form {
     margin: 1%;
   }
+
+  .signup__password-req {
+    font-size: 14px;
+    text-align: left;
+    display: block;
+    margin-top: 20px;
+  }
 }

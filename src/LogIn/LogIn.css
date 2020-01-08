@@ -24,6 +24,15 @@ form {
   color: red;
 }
 
+.login__demo-creds {
+  font-size: 14px;
+  text-align: left;
+  display: block;
+  margin-top: 20px;
+  margin: 8%;
+  color: #008000;
+}
+
 @media (min-width: 768px) {
   header {
     position: fixed;
@@ -54,5 +63,13 @@ form {
 
   .login-form {
     margin-top: 10px;
+  }
+
+  .login__demo-creds {
+    font-size: 14px;
+    text-align: left;
+    display: block;
+    margin: 0px 0px 0px 50px;
+    color: #008000;
   }
 }

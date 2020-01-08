@@ -47,6 +47,11 @@ class LogIn extends React.Component {
           onSubmit={this.handleSubmitJwtAuth}
         >
           <div className='username-login'>
+            <div className='login__demo-creds'>
+              <strong>
+                Demo credentials: testuser10@gmail.com / Thinkful1!
+              </strong>
+            </div>
             <label htmlFor='username-login'>Email Address</label>
             <input type='email' name='email' required />
           </div>

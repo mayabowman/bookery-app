@@ -25,6 +25,7 @@ form {
   font-size: 15px;
   width: 18%;
   text-align: center;
+  cursor: pointer;
 }
 
 textarea {

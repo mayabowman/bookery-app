@@ -32,6 +32,22 @@ class Nav extends React.Component {
     )
   }
 
+  toBrowse() {
+    return (
+      <Link to={'/browsebooks'} className='text-link'>
+        bookery<span className='keep-white'>.</span>
+      </Link>
+    )
+  }
+
+  toLandingPage() {
+    return (
+      <Link to={'/'} className='text-link'>
+        bookery<span className='keep-white'>.</span>
+      </Link>
+    )
+  }
+
   componentDidMount() {
     TokenService.onChange(() => {
       this.forceUpdate()
@@ -46,9 +62,10 @@ class Nav extends React.Component {
             <DrawerToggleButton click={this.props.drawerClickHandler}/>
           </div>
           <div className='navbar-logo'>
-          <Link to={'/'} className='text-link'>
-            bookery<span className='keep-white'>.</span>
-          </Link>
+            {TokenService.hasAuthToken()
+              ? this.toBrowse()
+              : this.toLandingPage()
+            }
           </div>
           <div className='spacer' />
           <div className='navbar-nav-items'>

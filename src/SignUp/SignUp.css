@@ -20,6 +20,15 @@ label {
   color: red;
 }
 
+.signup__password-req {
+  font-size: 14px;
+  text-align: left;
+  display: block;
+  margin-top: 20px;
+  margin: 8%;
+  color: #008000;
+}
+
 @media (min-width: 768px) {
   header {
     position: fixed;
@@ -55,6 +64,7 @@ label {
     font-size: 14px;
     text-align: left;
     display: block;
-    margin-top: 20px;
+    margin: 0px 0px 25px 0px;
+    color: #008000;
   }
 }

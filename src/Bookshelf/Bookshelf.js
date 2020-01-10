@@ -1,5 +1,4 @@
 import React from 'react'
-// import StarRatingComponent from 'react-star-rating-component'
 import config from '../config'
 import { Link } from 'react-router-dom'
 import BookshelfApiService from '../services/bookshelf-api-service'
@@ -13,15 +12,8 @@ class Bookshelf extends React.Component {
     this.state = {
       bookshelf: this.props.bookshelf,
       currentUserId: TokenService.getUserId()
-      // ratings: {}
     }
   }
-
-  // onStarClick(nextValue, prevValue, name) {
-  //   const newRatings = this.state.ratings
-  //   newRatings[name] = nextValue
-  //   this.setState({ ratings: newRatings })
-  // }
 
   handleRemoveBook = (id) => {
     BookshelfApiService.deleteBookshelfItem(id)
@@ -72,12 +64,6 @@ class Bookshelf extends React.Component {
               alt='book cover'
             />
           </div>
-          {/* <StarRatingComponent
-            name={`rate${i}`}
-            starCount={5}
-            value={this.state.ratings[`rate${i}`]}
-            onStarClick={this.onStarClick.bind(this)}
-          /> */}
           <div>
             <Link to={{
               pathname: '/reviewform',

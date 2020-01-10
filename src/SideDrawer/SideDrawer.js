@@ -36,10 +36,6 @@ class SideDrawer extends React.Component {
   }
 
   render() {
-    // let drawerClasses = 'side-drawer'
-    // if (this.props.show) {
-    //   drawerClasses = 'side-drawer open'
-    // }
     let drawerClasses
     this.props.show ? drawerClasses = 'side-drawer open' : drawerClasses = 'side-drawer'
 

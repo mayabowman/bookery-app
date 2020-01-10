@@ -4,17 +4,8 @@ import Book from '../Book/Book'
 import AppContext from '../contexts/AppContext'
 
 class BookList extends React.Component {
-  // constructor(props) {
-  //   super(props)
-
-  //   this.state = {
-  //     books: this.props.books,
-  //     bookshelf: this.props.bookshelf
-  //   }
-  // }
 
   static contextType = AppContext
-
 
   render() {
 
@@ -24,7 +15,7 @@ class BookList extends React.Component {
       return item.user_id === userId
     })
     const books = this.props.books.filter(item => {
-      const bookshelfItemIds = bookshelfItems.map(x => x.book_id)
+      const bookshelfItemIds = bookshelfItems.map(x => x.book_id);
 
       const exists = bookshelfItemIds.includes(item.id)
       return !exists
@@ -33,12 +24,7 @@ class BookList extends React.Component {
     let updatedBooks = Object.keys(books).map((book, i) => (
       <Book key={i} id={i} book={books[book]} handleAddToBookshelf={this.context.handleAddToBookshelf}/>
     ))
-    // let updatedBookList = this.props.books.filter((item, i) => {
-    //   // const bookshelfItem = this.props.bookshelf.find(bookshelfItem => {
-    //   //   return bookshelfItem.user_id === userId && bookshelfItem.book_id === item.book[i].id
-    //   // })
-    //   return bookshelfItem !== null
-    // })
+
     return (
       <div>
         {updatedBooks}

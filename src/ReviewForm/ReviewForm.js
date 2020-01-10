@@ -83,7 +83,6 @@ class ReviewForm extends React.Component {
               aria-label='Type your review...'
               id='review'
               name='review'
-              // cols='80'
               rows='10'
               value={this.state.textValue} onChange={this.handleChange}
               placeholder={this.state.placeholder}

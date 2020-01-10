@@ -66,7 +66,9 @@ class LogIn extends React.Component {
           </div>
         </form>
         <div className='error-message'>
-          {this.state.error}
+          <strong>
+            {this.state.error}
+          </strong>
         </div>
       </div>
     )

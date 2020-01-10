@@ -68,13 +68,18 @@ class App extends React.Component {
     if (!this.state.bookshelf.includes(id)) {
       BookshelfApiService.postBookshelfItem(id, 'dummy text', '3')
         .then((data) =>{
-          this.setState({
-            bookshelf: [...this.state.bookshelf, data.book_id]
-          })
+          if (id !== data.book_id) {
+            this.setState({
+              bookshelf: [...this.state.bookshelf, data.book_id]
+            })
+          }
         })
         .catch(err => {
           console.log('error', err)
         })
+    }
+    if (this.state.bookshelf.includes(id)) {
+      alert('This is already on your bookshelf!')
     }
   }
 

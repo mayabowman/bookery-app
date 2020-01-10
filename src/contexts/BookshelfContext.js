@@ -1,9 +1,5 @@
 import React from 'react'
 
-// export const nullBookshelf = {
-//   reviewer: {},
-// }
-
 const BookshelfContext = React.createContext({
   bookshelf: [],
   reviews: [],

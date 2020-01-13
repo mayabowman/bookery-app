@@ -108,7 +108,7 @@ class SignUp extends React.Component {
                 Must contain an uppercase, lowercase, number and special character
               </strong>
             </div>
-          <button type='submit'>
+          <button type='submit' value='SignUp'>
             Sign Up
           </button>
         </form>

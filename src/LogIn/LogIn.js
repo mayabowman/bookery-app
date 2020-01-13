@@ -53,14 +53,14 @@ class LogIn extends React.Component {
               </strong>
             </div>
             <label htmlFor='username-login'>Email Address</label>
-            <input type='email' name='email' required />
+            <input type='email' name='email' id='username-login' required />
           </div>
           <div className='password-login'>
             <label htmlFor='password-login'>Password</label>
-            <input type='password' name='password' required />
+            <input type='password' name='password' id='password-login' required />
           </div>
           <div>
-            <button type='submit'>
+            <button type='submit' value='LogIn'>
               Log In
             </button>
           </div>

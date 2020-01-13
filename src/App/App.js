@@ -90,10 +90,15 @@ class App extends React.Component {
     let updatedBookshelf = array.filter(bookshelfItem => {
       return bookshelfItem.id !== id
     })
+    debugger
+    console.log('I made it here!')
+    console.log('updatedBookshelf', updatedBookshelf)
+    console.log('id', id)
     this.setState({ bookshelf: updatedBookshelf })
   };
 
   render() {
+    console.log('bookshelf', this.state.bookshelf)
     const contextValue = {
       handleAddToBookshelf: this.handleAddToBookshelf,
       books: this.state.books,

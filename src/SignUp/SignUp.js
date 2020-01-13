@@ -1,6 +1,6 @@
-import React from 'react'
-import AuthApiService from '../services/auth-api-service'
-import './SignUp.css'
+import React from 'react';
+import AuthApiService from '../services/auth-api-service';
+import './SignUp.css';
 
 
 class SignUp extends React.Component {
@@ -17,7 +17,7 @@ class SignUp extends React.Component {
     const { location, history } = this.props
     const destination = (location.state || {}).from || '/login'
     history.push(destination)
-  }
+  };
 
   handleSubmit = e => {
     e.preventDefault()
@@ -42,7 +42,7 @@ class SignUp extends React.Component {
         this.setState({ error: res.error })
         console.log('error', res.error)
       })
-  }
+  };
 
   render() {
     return (
@@ -119,7 +119,7 @@ class SignUp extends React.Component {
         </div>
       </div>
     )
-  }
-}
+  };
+};
 
-export default SignUp
+export default SignUp;

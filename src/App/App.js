@@ -1,18 +1,18 @@
-import React from 'react'
-import { Route, Switch } from 'react-router-dom'
-import LandingPage from '../LandingPage/LandingPage'
-import SignUp from '../SignUp/SignUp'
-import LogIn from '../LogIn/LogIn'
-import BrowseBooks from '../BrowseBooks/BrowseBooks'
-import Bookshelf from '../Bookshelf/Bookshelf'
-import ReviewForm from '../ReviewForm/ReviewForm'
-import BookshelfApiService from '../services/bookshelf-api-service'
-import AppContext from '../contexts/AppContext'
-import config from '../config'
-import './App.css'
-import Nav from '../Nav/Nav'
-import SideDrawer from '../SideDrawer/SideDrawer'
-import Backdrop from '../Backdrop/Backdrop'
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
+import LandingPage from '../LandingPage/LandingPage';
+import SignUp from '../SignUp/SignUp';
+import LogIn from '../LogIn/LogIn';
+import BrowseBooks from '../BrowseBooks/BrowseBooks';
+import Bookshelf from '../Bookshelf/Bookshelf';
+import ReviewForm from '../ReviewForm/ReviewForm';
+import BookshelfApiService from '../services/bookshelf-api-service';
+import AppContext from '../contexts/AppContext';
+import config from '../config';
+import './App.css';
+import Nav from '../Nav/Nav';
+import SideDrawer from '../SideDrawer/SideDrawer';
+import Backdrop from '../Backdrop/Backdrop';
 
 class App extends React.Component {
   constructor(props) {
@@ -26,17 +26,17 @@ class App extends React.Component {
     this.drawerToggleClickHandler = this.drawerToggleClickHandler.bind(this)
   }
 
-  static contextType = AppContext
+  static contextType = AppContext;
 
   drawerToggleClickHandler = () => {
     this.setState((prevState) => {
       return {sideDrawerOpen: !prevState.sideDrawerOpen}
     })
-  }
+  };
 
   backdropClickHandler = () => {
     this.setState({ sideDrawerOpen: false })
-  }
+  };
 
   componentDidMount() {
     fetch(`${config.API_ENDPOINT}/books`)
@@ -57,7 +57,7 @@ class App extends React.Component {
           error: 'Sorry, could not get books at this time.'
         })
       })
-  }
+  };
 
   handleAddToBookshelf = (id) => {
     this.setState({
@@ -81,21 +81,21 @@ class App extends React.Component {
     if (this.state.bookshelf.includes(id)) {
       alert('This is already on your bookshelf!')
     }
-  }
+  };
 
   render() {
     const contextValue = {
       handleAddToBookshelf: this.handleAddToBookshelf,
       books: this.state.books,
       bookshelf: this.state.bookshelf
-    }
+    };
 
-    let { books } = this.state
-    let backdrop
+    let { books } = this.state;
+    let backdrop;
 
     if (this.state.sideDrawerOpen) {
       backdrop = <Backdrop click={this.backdropClickHandler}/>
-    }
+    };
 
     return (
       <AppContext.Provider value={contextValue}>
@@ -157,4 +157,4 @@ class App extends React.Component {
   }
 }
 
-export default App
+export default App;

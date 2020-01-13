@@ -1,5 +1,5 @@
-import React from 'react'
-import './Book.css'
+import React from 'react';
+import './Book.css';
 
 class Book extends React.Component {
   constructor() {
@@ -12,14 +12,14 @@ class Book extends React.Component {
 
   changeButtonText(text) {
     this.setState({ buttonText: text })
-  }
+  };
 
   disableButton() {
     this.setState({ disabledButton: true })
-  }
+  };
 
   render() {
-    const { buttonText } = this.state
+    const { buttonText } = this.state;
     return (
       <div className='booklist-item'>
         <h2>{this.props.book.title}</h2>
@@ -47,8 +47,8 @@ class Book extends React.Component {
         </button>
       </div>
     )
-  }
-}
+  };
+};
 
-export default Book
+export default Book;
 

@@ -1,13 +1,13 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import TokenService from '../services/token-service'
-import './SideDrawer.css'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import TokenService from '../services/token-service';
+import './SideDrawer.css';
 
 class SideDrawer extends React.Component {
 
   handleLogoutClick = () => {
     TokenService.clearAuthToken()
-  }
+  };
 
   renderLogoutLink() {
     return (
@@ -22,7 +22,7 @@ class SideDrawer extends React.Component {
         Log Out
       </Link>
     )
-  }
+  };
 
   renderLoginLink() {
     return (
@@ -33,10 +33,10 @@ class SideDrawer extends React.Component {
         Sign Up
       </Link>
     )
-  }
+  };
 
   render() {
-    let drawerClasses
+    let drawerClasses;
     this.props.show ? drawerClasses = 'side-drawer open' : drawerClasses = 'side-drawer'
 
     return (
@@ -54,7 +54,7 @@ class SideDrawer extends React.Component {
         </div>
       </nav>
     )
-  }
-}
+  };
+};
 
-export default SideDrawer
+export default SideDrawer;

@@ -1,5 +1,5 @@
-import React from 'react'
-import BookList from '../BookList/BookList'
+import React from 'react';
+import BookList from '../BookList/BookList';
 
 class BrowseBooks extends React.Component {
 
@@ -14,8 +14,8 @@ class BrowseBooks extends React.Component {
         />
       </div>
     )
-  }
-}
+  };
+};
 
-export default BrowseBooks
+export default BrowseBooks;
 

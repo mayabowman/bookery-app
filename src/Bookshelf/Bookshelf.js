@@ -1,9 +1,9 @@
-import React from 'react'
-import config from '../config'
-import { Link } from 'react-router-dom'
-import BookshelfApiService from '../services/bookshelf-api-service'
-import TokenService from '../services/token-service'
-import './Bookshelf.css'
+import React from 'react';
+import config from '../config';
+import { Link } from 'react-router-dom';
+import BookshelfApiService from '../services/bookshelf-api-service';
+import TokenService from '../services/token-service';
+import './Bookshelf.css';
 
 class Bookshelf extends React.Component {
   constructor(props) {
@@ -22,7 +22,7 @@ class Bookshelf extends React.Component {
       return bookshelfItem.id !== id
     })
     this.setState({ bookshelf: updatedBookshelf })
-  }
+  };
 
   componentDidMount() {
     fetch(`${config.API_ENDPOINT}/bookshelf`)
@@ -43,16 +43,16 @@ class Bookshelf extends React.Component {
           error: 'Sorry, could not get books at this time.'
         })
       })
-  }
+  };
 
 
 
   render() {
-    let userId = TokenService.getUserId()
+    let userId = TokenService.getUserId();
     function filterByUserId(item) {
       return item.user_id === Number(userId)
-    }
-    const userBooks = this.state.bookshelf.filter(filterByUserId)
+    };
+    const userBooks = this.state.bookshelf.filter(filterByUserId);
     const booksToDisplay = userBooks.map((bookshelfItem, i) => {
       return (
         <div key={i} className='displayed-books'>
@@ -87,17 +87,17 @@ class Bookshelf extends React.Component {
           </div>
         </div>
       )
-    })
+    });
     return (
       <div>
         <h1>Your Bookshelf</h1>
         {booksToDisplay}
       </div>
     )
-  }
-}
+  };
+};
 
-export default Bookshelf
+export default Bookshelf;
 
 
 

@@ -1,7 +1,7 @@
-import React from 'react'
-import TokenService from '../services/token-service'
-import AuthApiService from '../services/auth-api-service'
-import './LogIn.css'
+import React from 'react';
+import TokenService from '../services/token-service';
+import AuthApiService from '../services/auth-api-service';
+import './LogIn.css';
 
 class LogIn extends React.Component {
   static defaultProps = {
@@ -17,7 +17,7 @@ class LogIn extends React.Component {
     const { location, history } = this.props
     const destination = (location.state || {}).from || '/browsebooks'
     history.push(destination)
-  }
+  };
 
   handleSubmitJwtAuth = e => {
     e.preventDefault()
@@ -37,7 +37,7 @@ class LogIn extends React.Component {
       .catch(res => {
         this.setState({ error: res.error })
       })
-  }
+  };
 
   render() {
     return (
@@ -72,7 +72,7 @@ class LogIn extends React.Component {
         </div>
       </div>
     )
-  }
-}
+  };
+};
 
-export default LogIn
+export default LogIn;

@@ -24,7 +24,6 @@ class App extends React.Component {
       sideDrawerOpen: false,
     }
     this.drawerToggleClickHandler = this.drawerToggleClickHandler.bind(this)
-    this.handleRemoveBook = this.handleRemoveBook.bind(this)
   }
 
   static contextType = AppContext;
@@ -61,6 +60,8 @@ class App extends React.Component {
   };
 
   handleAddToBookshelf = (id) => {
+    console.log('id', id)
+    console.log('bookshelf', this.state.bookshelf)
     this.setState({
       bookshelf: !this.state.bookshelf.includes(id)
                   ? [...this.state.bookshelf, id]
@@ -82,19 +83,6 @@ class App extends React.Component {
     if (this.state.bookshelf.includes(id)) {
       alert('This is already on your bookshelf!')
     }
-  };
-
-  handleRemoveBook = (id) => {
-    BookshelfApiService.deleteBookshelfItem(id)
-    let array = [...this.state.bookshelf]
-    let updatedBookshelf = array.filter(bookshelfItem => {
-      return bookshelfItem.id !== id
-    })
-    debugger
-    console.log('I made it here!')
-    console.log('updatedBookshelf', updatedBookshelf)
-    console.log('id', id)
-    this.setState({ bookshelf: updatedBookshelf })
   };
 
   render() {

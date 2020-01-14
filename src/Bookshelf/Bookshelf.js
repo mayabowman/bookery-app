@@ -1,7 +1,7 @@
 import React from 'react';
 import config from '../config';
 import { Link } from 'react-router-dom';
-// import BookshelfApiService from '../services/bookshelf-api-service';
+import BookshelfApiService from '../services/bookshelf-api-service';
 import TokenService from '../services/token-service';
 import './Bookshelf.css';
 
@@ -15,14 +15,14 @@ class Bookshelf extends React.Component {
     }
   }
 
-  // handleRemoveBook = (id) => {
-  //   BookshelfApiService.deleteBookshelfItem(id)
-  //   let array = [...this.state.bookshelf]
-  //   let updatedBookshelf = array.filter(bookshelfItem => {
-  //     return bookshelfItem.id !== id
-  //   })
-  //   this.setState({ bookshelf: updatedBookshelf })
-  // };
+  handleRemoveBook = (id) => {
+    BookshelfApiService.deleteBookshelfItem(id)
+    let array = [...this.state.bookshelf]
+    let updatedBookshelf = array.filter(bookshelfItem => {
+      return bookshelfItem.id !== id
+    })
+    this.setState({ bookshelf: updatedBookshelf })
+  };
 
   componentDidMount() {
     fetch(`${config.API_ENDPOINT}/bookshelf`)
@@ -78,7 +78,7 @@ class Bookshelf extends React.Component {
             <button
               className='delete-button'
               id={bookshelfItem.id}
-              onClick={() => this.props.handleRemoveBook(bookshelfItem.id)}
+              onClick={() => this.handleRemoveBook(bookshelfItem.id)}
             >
               Delete
             </button>

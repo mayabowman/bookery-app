@@ -29,6 +29,7 @@ class SideDrawer extends React.Component {
       <Link
         to='/signup'
         className='side-drawer__text-link'
+        onClick={this.props.toggle}
       >
         Sign Up
       </Link>

@@ -13,6 +13,7 @@ import './App.css';
 import Nav from '../Nav/Nav';
 import SideDrawer from '../SideDrawer/SideDrawer';
 import Backdrop from '../Backdrop/Backdrop';
+import PrivateRoute from '../utilities/PrivateRoute';
 
 class App extends React.Component {
   constructor(props) {
@@ -153,7 +154,7 @@ class App extends React.Component {
                     />
                   )}
                 />
-                <Route
+                <PrivateRoute
                   path='/bookshelf'
                   render={() => (
                     <Bookshelf
